@@ -1,35 +1,187 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [name, setName] = useState("Voornaam Achternaam");
+  const [title, setTitle] = useState("Developer");
+  const [workdays, setWorkdays] = useState("ma-di-wo-do");
+  const [email, setEmail] = useState("mail@emico.nl");
+  const [phone, setPhone] = useState("+31 85 888 77 44");
+  const [address, setAddress] = useState("Utrechtsestraatweg 157, 3911 TS Rhenen");
+
+  const [copied, setCopied] = useState(false);
+  const logoSrc = 'https://www.emico.nl/svg/emico-white.svg';
+
+  const copyToClipboard = (html) => {
+    navigator.clipboard.writeText(html);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const signatureHtml = `Mime-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+<html>
+  <body>
+    <table cellpadding="0" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px; color: #111; width: 525px;">
+      <tr>
+        <td style="vertical-align: middle; text-align: center; width: 120px; background-color: #212121;">
+          <img src="${logoSrc}" alt="Emico Logo" style="width: 90px; height: auto;" />
+        </td>
+        <td style="padding-left: 15px;">
+          <p style="margin:0; font-weight:bold;">${name} | <span style="font-weight: normal;">${title}</span></p>
+          <p style="margin: 5px 0;">Emico | ${address}</p>
+          <p style="margin: 5px 0;">
+            <a href="mailto:${email}" style="color:#111; text-decoration:none;">${email}</a> |
+            <a href="https://www.emico.nl" style="color:#111; text-decoration:none;">www.emico.nl</a>
+          </p>
+          <p style="margin:5px 0 0 0;">+31 85 888 77 44 ${workdays && ` | (Werkzaam op: ${workdays})`}</p>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <section className="mb-16">
+      <div className="py-6 mb-8 md:mb-16 w-full border-b border-[#2a2a2a] hover:border-[#646cff]">
+        <div className="container mx-auto px-4 max-w-5xl flex flex-row items-center justify-between relative">
+          <img src={logoSrc} alt="Emico Logo" className="w-40 app-logo"/>
+          <h1 className="text-2xl md:text-4xl font-medium text-[#757575]">SignatureApp</h1>
+          <span className="flex flex-row gap-x-2 text-[8px] text-right py-2 px-3 bg-[#212121] border border-[#2a2a2a] hover:border-[#646cff] absolute -bottom-6 right-4 transform translate-y-1/2 rounded-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-3 w-3">
+              <path strokeLinecap="round" strokeLinejoin="round" d="m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z" />
+            </svg>
+            MailData Signatures
+          </span>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 my-8">
+          <div className="w-full">
+            <label htmlFor="name" className="text-sm block mb-2 font-bold">
+              Name
+            </label>
+            <input
+              id="name"
+              type="text"
+              placeholder="Name"
+              autoComplete="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="p-3 w-full"
+            />
+          </div>
+          <div className="w-full">
+            <label htmlFor="title" className="text-sm block mb-2 font-bold">
+              Title
+            </label>
+            <input
+              id="title"
+              type="text"
+              placeholder="Title"
+              autoComplete="organization-title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="p-3 w-full"
+            />
+          </div>
+          <div className="w-full">
+            <label htmlFor="workdays" className="text-sm block mb-2 font-bold">
+              Workdays
+            </label>
+            <input
+              id="workdays"
+              type="text"
+              placeholder="Workdays"
+              autoComplete="off"
+              value={workdays}
+              onChange={(e) => setWorkdays(e.target.value)}
+              className="p-3 w-full"
+            />
+          </div>
+          <div className="w-full">
+            <label htmlFor="email" className="text-sm block mb-2 font-bold">
+              Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              placeholder="Email"
+              autoComplete="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="p-3 w-full"
+            />
+          </div>
+          <div className="w-full">
+            <label htmlFor="phone" className="text-sm block mb-2 font-bold">
+              Phone
+            </label>
+            <input
+              id="phone"
+              type="tel"
+              placeholder="Phone"
+              autoComplete="tel"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className="p-3 w-full"
+            />
+          </div>
+          <div className="w-full">
+            <label htmlFor="address" className="text-sm block mb-2 font-bold">
+              Address
+            </label>
+            <input
+              id="address"
+              type="text"
+              placeholder="Address"
+              autoComplete="street-address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              className="p-3 w-full"
+            />
+          </div>
+        </div>
+
+        <h2 className="text-xl font-bold mb-4 mt-8">Preview</h2>
+        <div className="preview bg-white p-4 rounded-md">
+          <div dangerouslySetInnerHTML={{ __html: signatureHtml }} id="preview"/>
+        </div>
+
+        <h2 className="text-xl font-bold mb-4 mt-20">Generated HTML</h2>
+        <div className="generated relative">
+          <textarea
+            id="signature-html"
+            value={signatureHtml}
+            readOnly
+            className="font-mono text-xs leading-relaxed w-full h-80 p-4 bg-[#171717] rounded-2xl resize-none border border-transparent"
+          />
+            <div className="absolute bottom-4 right-4 flex h-9 items-center">
+              <div className="flex items-center gap-4 rounded-sm">
+              <button
+                className="text-xs flex gap-1 items-center select-none py-1"
+                aria-label="Copy"
+                onClick={() => copyToClipboard(signatureHtml)}
+              >
+                {copied ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" height="16px" width="16px" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" height="16px" width="16px" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75" />
+                  </svg>
+                )}
+                <span>{copied ? "Copied!" : "Copy HTML"}</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </section>
+  );
 }
 
-export default App
+export default App;

@@ -1,42 +1,69 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import "tailwindcss";
+
+:root {
+  @apply bg-[#212121] text-white/87;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+::-webkit-scrollbar {
+  @apply h-1.5 w-1.5;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-[#555555];
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#777777];
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #555555 transparent;
+  transition: border-color 0.25s;
+}
+
+button {
+  @apply rounded-lg border border-transparent px-5 py-2 text-xs font-medium text-[#f1f1f1] bg-[#171717] cursor-pointer;
+}
+
+button, input, textarea {
+  &:hover, &:active, &:focus {
+    @apply border-[#646cff] outline-none;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+input {
+  @apply text-[#f1f1f1] bg-[#303030] border border-[#303030] rounded-md;
+}
+
+h1 {
+  &:hover {
+    filter: drop-shadow(0 0 2rem #646cffaa);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+.app-logo, .generated {
+  filter: drop-shadow(0 0 2rem #646cffaa);
+}
+
+::selection,
+::-moz-selection {
+  @apply bg-[#646cff] text-white;
+}
+
+#preview {
+  all: unset;
+
+  img, svg {
+    @apply inline;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
