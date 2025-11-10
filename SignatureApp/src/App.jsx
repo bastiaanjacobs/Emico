@@ -12,17 +12,17 @@ function App() {
   const [copied, setCopied] = useState(false);
   const logoSrc = 'https://www.emico.nl/svg/emico-white.svg';
 
-  const copyToClipboard = (html) => {
-    navigator.clipboard.writeText(html);
+  const copyToClipboard = (signatureHtml) => {
+    navigator.clipboard.writeText(signatureHeader + "\n\n" + signatureHtml);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const signatureHtml = `Mime-Version: 1.0
+  const signatureHeader = `Mime-Version: 1.0
 Content-Type: text/html; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 8bit`
 
-<html>
+  const signatureHtml = `<html>
   <body>
     <table cellpadding="0" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px; color: #111; width: 525px;">
       <tr>
@@ -31,12 +31,12 @@ Content-Transfer-Encoding: 8bit
         </td>
         <td style="padding-left: 15px;">
           <p style="margin:0; font-weight:bold;">${name} | <span style="font-weight: normal;">${title}</span></p>
-          <p style="margin: 5px 0;">Emico | ${address}</p>
-          <p style="margin: 5px 0;">
+          <p style="margin: 3px 0;">Emico | ${address}</p>
+          <p style="margin: 3px 0;">
             <a href="mailto:${email}" style="color:#111; text-decoration:none;">${email}</a> |
             <a href="https://www.emico.nl" style="color:#111; text-decoration:none;">www.emico.nl</a>
           </p>
-          <p style="margin:5px 0 0 0;">+31 85 888 77 44 ${workdays && ` | (Werkzaam op: ${workdays})`}</p>
+          <p style="margin:3px 0 0 0;">+31 85 888 77 44 ${workdays && ` | (Werkzaam op: ${workdays})`}</p>
         </td>
       </tr>
     </table>
@@ -146,7 +146,7 @@ Content-Transfer-Encoding: 8bit
         </div>
 
         <h2 className="text-xl font-bold mb-4 mt-8">Preview</h2>
-        <div className="preview bg-white p-4 rounded-md">
+        <div className="preview bg-white p-10 rounded-md">
           <div dangerouslySetInnerHTML={{ __html: signatureHtml }} id="preview"/>
         </div>
 
