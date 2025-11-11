@@ -5,12 +5,14 @@ function App() {
   const [name, setName] = useState("Voornaam Achternaam");
   const [title, setTitle] = useState("Developer");
   const [workdays, setWorkdays] = useState("ma-di-wo-do");
-  const [email, setEmail] = useState("mail@emico.nl");
+  const [email, setEmail] = useState("info@emico.nl");
   const [phone, setPhone] = useState("+31 85 888 77 44");
   const [address, setAddress] = useState("Utrechtsestraatweg 157, 3911 TS Rhenen");
 
+  const baseUrl = import.meta.env.BASE_URL;
   const [copied, setCopied] = useState(false);
-  const logoSrc = 'https://www.emico.nl/svg/emico-white.svg';
+  const logoSrc = baseUrl+'logo.svg';
+  const uspSrc = baseUrl+'gptw-outline.svg';
 
   const copyToClipboard = (signatureHtml) => {
     navigator.clipboard.writeText(signatureHeader + "\n\n" + signatureHtml);
@@ -24,19 +26,32 @@ Content-Transfer-Encoding: 8bit`
 
   const signatureHtml = `<html>
   <body>
-    <table cellpadding="0" cellspacing="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px; color: #111; width: 525px;">
+    <table  cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px; color: #111111; width: 100%;">
       <tr>
-        <td style="vertical-align: middle; text-align: center; width: 120px; background-color: #212121;">
-          <img src="${logoSrc}" alt="Emico Logo" style="width: 90px; height: auto;" />
+        <td style="vertical-align: top; text-align: center; width: 120px; background-color: #212121; position: relative; padding: 35px 20px 0 20px;">
+          <img src="${logoSrc}" alt="Emico Logo" style="width: 90px; height: auto;"/>
+          <img src="${uspSrc}" alt="Great Place to Work" style="width: auto; height: 30px; position: absolute; bottom: 0; right: 0;"/>
         </td>
         <td style="padding-left: 15px;">
-          <p style="margin:0; font-weight:bold;">${name} | <span style="font-weight: normal;">${title}</span></p>
-          <p style="margin: 3px 0;">Emico | ${address}</p>
+          <p style="margin: 0; font-size: 14px; font-weight: bold;">${name} | <span style="font-weight: normal;">${title}</span></p>
           <p style="margin: 3px 0;">
-            <a href="mailto:${email}" style="color:#111; text-decoration:none;">${email}</a> |
-            <a href="https://www.emico.nl" style="color:#111; text-decoration:none;">www.emico.nl</a>
+            <a href="mailto:${email}" style="color: #111111; text-decoration:none;">${email}</a> |
+            <a href="https://www.emico.nl" style="color: #111111; text-decoration:none;">www.emico.nl</a>
+            <span>| ${phone}</span>
           </p>
-          <p style="margin:3px 0 0 0;">+31 85 888 77 44 ${workdays && ` | (Werkzaam op: ${workdays})`}</p>
+          <p style="margin: 3px 0;">${address}</p>
+          <p style="margin: 3px 0 10px 0;">${workdays && `(Werkzaam op: ${workdays})`}</p>
+          <table style="vertical-align: top; border="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td style="font-size: 12px; font-weight: bold;">
+                  <a style="border-radius: 5px; padding: 6px 14px; background-color: #CFE0FF; text-decoration: none; color: #1155CB;" rel="noopener noreferrer" target="_blank" href="https://www.emico.nl/vacatures/" title="https://www.emico.nl/vacatures/">We're hiring!</a>
+                  <span style="margin-left: 20px;"><a href="https://nl.linkedin.com/company/emico-e-commerce" target="_blank"><img src="${baseUrl}linkedin.png" alt="LinkedIn Icon"/></span>
+                  <span style="margin-left: 5px;"><a href="https://wa.me/31858887744" target="_blank"><img src="${baseUrl}whatsapp.png" alt="Whatsapp Icon"/></a></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </td>
       </tr>
     </table>
