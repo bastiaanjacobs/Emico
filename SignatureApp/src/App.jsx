@@ -158,7 +158,7 @@ Content-Transfer-Encoding: 8bit`
         </div>
 
         <h2 className="text-xl font-bold mb-4 mt-8">Preview</h2>
-        <div className="preview bg-white p-10 rounded-md">
+        <div className="preview bg-white p-10 rounded-md overflow-auto">
           <div dangerouslySetInnerHTML={{ __html: signatureHtml }} id="preview"/>
         </div>
 
