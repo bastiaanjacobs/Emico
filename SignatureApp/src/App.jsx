@@ -31,8 +31,8 @@ Content-Transfer-Encoding: 8bit`
         <td style="vertical-align: middle; text-align: center; width: 120px; background-color: #212121;">
           <img src="${logoSrc}" alt="Emico Logo" style="width: 90px; height: auto;"/>
         </td>
-        <td style="padding-left: 15px;">
-          <p style="margin: 0; font-size: 14px; font-weight: bold;">${name} | <span style="font-weight: normal;">${title}</span></p>
+        <td style="vertical-align: top; padding-left: 15px;">
+          <p style="margin: 0 0 8px 0; font-size: 14px; font-weight: bold;">${name} | <span style="font-weight: normal;">${title}</span></p>
           <p style="margin: 3px 0;">
             <a href="mailto:${email}" style="color: #111111; text-decoration:none;">${email}</a> |
             <a href="https://www.emico.nl" style="color: #111111; text-decoration:none;">www.emico.nl</a>
