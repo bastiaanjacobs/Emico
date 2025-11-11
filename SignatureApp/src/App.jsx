@@ -9,7 +9,7 @@ function App() {
   const [phone, setPhone] = useState("+31 85 888 77 44");
   const [address, setAddress] = useState("Utrechtsestraatweg 157, 3911 TS Rhenen");
 
-  const baseUrl = import.meta.env.BASE_URL;
+  const baseUrl = 'https://bastiaanjacobs.github.io/Emico/';
   const [copied, setCopied] = useState(false);
   const logoSrc = baseUrl+'logo.svg';
   const uspSrc = baseUrl+'gptw-outline.svg';
