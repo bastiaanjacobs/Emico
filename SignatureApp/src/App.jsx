@@ -26,7 +26,7 @@ Content-Transfer-Encoding: 8bit`
 
   const signatureHtml = `<html>
   <body>
-    <table  cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px; color: #111111; width: 100%; min-width: 500px; max-width: 800px;">
+    <table  cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px; color: #111111; width: 100%; min-width: 500px; max-width: 600px;">
       <tr>
         <td style="vertical-align: middle; text-align: center; width: 120px; background-color: #212121;">
           <img src="${logoSrc}" alt="Emico Logo" style="width: 90px; height: auto;"/>
