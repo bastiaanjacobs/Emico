@@ -17,8 +17,8 @@ Content-Transfer-Encoding: 8bit`,ft=`<html>
         <td style="vertical-align: middle; text-align: center; width: 120px; background-color: #212121;">
           <img src="${pl}" alt="Emico Logo" style="width: 90px; height: auto;"/>
         </td>
-        <td style="padding-left: 15px;">
-          <p style="margin: 0; font-size: 14px; font-weight: bold;">${M} | <span style="font-weight: normal;">${k}</span></p>
+        <td style="vertical-align: top; padding-left: 15px;">
+          <p style="margin: 0 0 8px 0; font-size: 14px; font-weight: bold;">${M} | <span style="font-weight: normal;">${k}</span></p>
           <p style="margin: 3px 0;">
             <a href="mailto:${ml}" style="color: #111111; text-decoration:none;">${ml}</a> |
             <a href="https://www.emico.nl" style="color: #111111; text-decoration:none;">www.emico.nl</a>
