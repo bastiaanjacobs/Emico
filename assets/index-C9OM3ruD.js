@@ -20,7 +20,7 @@ Content-Transfer-Encoding: 8bit`,xl=`<html>
               <td style="vertical-align: top; text-align: left; width: 85px; height: 85px;">
                 <img src="${Ml}" alt="Emico Logo" height="85" width="85" style="width: 85px; height: 85px; padding: 10px; background-color: ${vl};"/>
               </td>
-              <td style="vertical-align: top; padding: 0 10px 10px 15px; width: 270px;">
+              <td style="vertical-align: top; padding: 0 10px 10px 15px; width: 285px;">
                 <p style="margin: 0 0 8px 0; font-size: 20px; font-weight: bold; line-height: 1.2; color: #333;">${M}</p>
                 <p style="margin: 0;">
                   <img height="12" width="11" src="${X}slash.png" alt="Slash Icon" style="margin-right: 8px; height: 12px; width: 11px;"/>
