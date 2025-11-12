@@ -47,27 +47,27 @@ Content-Transfer-Encoding: 8bit`
           <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
             <tr>
               <td style="vertical-align: top; text-align: left; width: 100px; height: 100px;">
-                <img src="${logoSrc}" alt="Emico Logo" style="width: 100px; height: 100px; padding: 10px; background-color: ${mainColor};"/>
+                <img src="${logoSrc}" alt="Emico Logo" height="100px" width="100px" style="width: 100px; height: 100px; padding: 10px; background-color: ${mainColor};"/>
               </td>
               <td style="vertical-align: top; padding: 0 10px 10px 15px; width: 270px;">
                 <p style="margin: 0 0 8px 0; font-size: 24px; font-weight: bold; line-height: 1.2; color: #333;">${name}</p>
                 <p style="margin: 0;">
-                  <img src="${baseUrl}slash.png" alt="Slash Icon" style="margin-right: 8px;"/>
+                  <img height="12px" width="11px" src="${baseUrl}slash.png" alt="Slash Icon" style="margin-right: 8px; height: 12px; width: 11px;"/>
                   <span style="font-weight: 500; font-style: normal; color: #505050; font-size: 14px; letter-spacing: 0.5px; white-space: pre-wrap; text-transform: uppercase;">${title}</span>
                 </p>
               </td>
               <td style="font-size: 12px; vertical-align: top; padding: 0 10px 10px 0; text-align: right; width: 210px;">
                 <p style="padding-bottom: 5px; margin: 0;">
                   <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">PHONE</span>
-                  <span style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" style="margin: 0 4px; font-size: 0;"/>${phone}</span>
+                  <span style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>${phone}</span>
                 </p>
                 <p style="padding-bottom: 5px; margin: 0;">
                   <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">WEBSITE</span>
-                  <a href="https://www.emico.nl" style="color: #333; font-size: 12px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" style="margin: 0 4px; font-size: 0;"/>www.emico.nl</a>
+                  <a href="https://www.emico.nl" style="color: #333; font-size: 12px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>www.emico.nl</a>
                 </p>
                 <p style="margin: 0;">
                   <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">EMAIL</span>
-                  <a href="mailto:${email}" style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" style="margin: 0 4px; font-size: 0;"/>${email}</a>
+                  <a href="mailto:${email}" style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>${email}</a>
                 </p>
               </td>
             </tr>
@@ -77,12 +77,15 @@ Content-Transfer-Encoding: 8bit`
       <tr>
         <td>
           <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
-            <tr style="height: 40px;">
-              <td style="vertical-align: middle; background: ${bgColor}; position: relative; height: 40px; width: 120px;">
+            <tr style="height: 40px; border-top: 1px solid #fafafa;">
+              <td style="vertical-align: middle; background: ${bgColor}; position: relative; height: 40px; width: 100px;">
                 <img src="${uspSrc}" alt="GPTW Logo" style="position: absolute; top: 0; left: 0; bottom: 0; width: 40px; height: 40px; background: ${mainColor}; overflow: hidden;"/>
               </td>
-              <td style="vertical-align: middle; background: ${bgColor}; text-align: left; width: 270px;">
-                <p style="font-size: 10px;">${address}</p>
+              <td style="vertical-align: middle; background: ${bgColor}; text-align: left; width: 270px; padding-left: 15px;">
+                <p style="font-size: 10px; margin: 0;">
+                  <img src="${baseUrl}address-icon.png" alt="Address Icon" style="width: 15px; height: 15px; background: ${mainColor}; overflow: hidden; margin-right: 5px;"/>
+                  <span>${address}</span>
+                </p>
               </td>
               <td style="padding-right: 10px; text-align: right; vertical-align: middle; background: ${bgColor};">
                 ${icons.linkedin ? `<span style="padding-left: 8px;"><a href="https://nl.linkedin.com/company/emico-e-commerce" style="display: inline-block; height: 24px; width: 24px; padding: 0px; background-color: ${mainColor}; border-radius: 5px; overflow: hidden;"><img src="${baseUrl}linkedin-icon.png" alt="linkedin" height="24" width="24" style="height: 24px; width: 24px; font-size: 0;"/></a></span>` : ''}
@@ -99,12 +102,11 @@ Content-Transfer-Encoding: 8bit`
         <td>
           <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
             <tr style="background: #fff;">
-              <td style="background: #fff; text-align: left; padding-top: 10px;">
-                <a style="font-size: 10px; font-weight: 700; border-radius: 5px; padding: 5px 12px; background-color: #CFE0FF; text-decoration: none; color: #1155CB" title="https://www.emico.nl/vacatures/" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="https://www.emico.nl/vacatures/">We're hiring!</a>
-              </td>
-              <td style="background: #fff;"></td>
               <td style="background: #fff; text-align: right; padding-top: 10px;">
-                <p style="color: #828282; font-size: 10px; padding: 0; margin: 0;">${workdays && `(Werkzaam op: ${workdays})`}</p>
+                <p style="color: #828282; font-size: 10px; padding: 0; margin: 0;">
+                  ${workdays && `(Werkzaam op: ${workdays})`}
+                  <a style="font-size: 10px; font-weight: 700; display: inline-block; border-radius: 5px; margin-left: 10px; padding: 5px 12px; background-color: #CFE0FF; text-decoration: none; color: #1155CB" title="https://www.emico.nl/vacatures/" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="https://www.emico.nl/vacatures/">We're hiring!</a>
+                </p>
               </td>
             </tr>
           </table>
