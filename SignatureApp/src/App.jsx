@@ -14,10 +14,24 @@ function App() {
   const logoSrc = baseUrl+'logo.svg';
   const uspSrc = baseUrl+'gptw-outline.svg';
 
+  const mainColor = "#212121"; // default Color
+
   const copyToClipboard = (signatureHtml) => {
     navigator.clipboard.writeText(signatureHeader + "\n\n" + signatureHtml);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const [icons, setIcons] = useState({
+    linkedin: true,
+    x: true,
+    facebook: true,
+    instagram: true,
+    whatsapp: true,
+  });
+
+  const toggleIcon = (name) => {
+    setIcons((prev) => ({ ...prev, [name]: !prev[name] }));
   };
 
   const signatureHeader = `Mime-Version: 1.0
@@ -26,28 +40,94 @@ Content-Transfer-Encoding: 8bit`
 
   const signatureHtml = `<html>
   <body>
-    <table  cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px; color: #111111; width: 100%; min-width: 500px; max-width: 600px;">
+    <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px; color: #111; background: #fafafa; width: 100%; min-width: 500px; max-width: 600px;">
       <tr>
-        <td style="vertical-align: middle; text-align: center; width: 120px; background-color: #212121;">
-          <img src="${logoSrc}" alt="Emico Logo" style="width: 90px; height: auto;"/>
+        <td>
+          <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
+            <tr>
+              <td style="vertical-align: top; text-align: left; width: 120px; height: 120px;">
+                <img src="${logoSrc}" alt="Emico Logo" style="width: 120px; height: 120px; padding: 10px; background-color: ${mainColor};"/>
+              </td>
+              <td style="vertical-align: top; padding: 10px 10px 10px 15px; width: 270px;">
+                <p style="margin: 0 0 8px 0; font-size: 28px; font-weight: bold; line-height: 1.2; color: #333;">${name}</p>
+                <p>
+                  <span style="font-weight: 500; font-style: normal; color: #505050; font-size: 14px; letter-spacing: 0.5px; white-space: pre-wrap; text-transform: uppercase;">${title}</span>
+                </p>
+              </td>
+              <td style="font-size: 12px; vertical-align: top; padding: 10px; text-align: right;">
+                <p style="padding-bottom: 5px;">
+                  <span style="display: block; font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">PHONE</span>
+                  <span style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;">${phone}</span>
+                </p>
+                <p style="padding-bottom: 5px;">
+                  <span style="display: block; font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">WEBSITE</span>
+                  <a href="https://www.emico.nl" style="color: #333; font-size: 12px; text-decoration: none; font-weight: 600;">www.emico.nl</a>
+                </p>
+                <p>
+                  <span style="display: block; font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">EMAIL</span>
+                  <a href="mailto:${email}" style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;">${email}</a>
+                </p>
+              </td>
+            </tr>
+          </table>
         </td>
-        <td style="vertical-align: top; padding-left: 15px;">
-          <p style="margin: 0 0 8px 0; font-size: 14px; font-weight: bold;">${name} | <span style="font-weight: normal;">${title}</span></p>
-          <p style="margin: 3px 0;">
-            <a href="mailto:${email}" style="color: #111111; text-decoration:none;">${email}</a> |
-            <a href="https://www.emico.nl" style="color: #111111; text-decoration:none;">www.emico.nl</a>
-            <span>| ${phone}</span>
-          </p>
-          <p style="margin: 3px 0;">${address}</p>
-          <p style="margin: 3px 0 10px 0;">${workdays && `(Werkzaam op: ${workdays})`}</p>
-          <table style="vertical-align: top; border="0" cellpadding="0">
-            <tbody>
-              <tr>
-                <td style="font-size: 12px; font-weight: bold;">
-                  <a style="font-size: 10px; border-radius: 5px; padding: 5px 12px; background-color: #CFE0FF; text-decoration: none; color: #1155CB;" href="https://www.emico.nl/vacatures/" title="https://www.emico.nl/vacatures/">We're hiring!</a>
-                </td>
-              </tr>
-            </tbody>
+      </tr>
+      <tr>
+        <td>
+          <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
+            <tr style="height: 40px;">
+              <td style="vertical-align: middle; background: #f5f5f5; position: relative; height: 40px; width: 120px;">
+                <img src="${uspSrc}" alt="GPTW Logo" style="position: absolute; top: 0; left: 0; bottom: 0; width: 40px; height: 40px; background: ${mainColor}; overflow: hidden;"/>
+              </td>
+              <td style="vertical-align: middle; background: #f5f5f5; padding-left: 15px; text-align: left; width: 270px;">
+                <p style="font-size: 10px;">
+                  <img src="${baseUrl}address-icon.png" alt="Address Emico" width="auto" height="20px" style="height: 20px;"/>
+                  <span style="margin-left: 5px;">${address}</span>
+                </p>
+              </td>
+              <td style="padding-right: 10px; text-align: right; vertical-align: middle; background: #f5f5f5;">
+                ${icons.linkedin ? `
+                <span style="padding-left: 8px;">
+                  <a href="https://www.linkedin.com/" style="display: inline-block; padding: 0px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}linkedin-icon.png" alt="linkedin" width="24" style="width: 24px; font-size: 0;"/></a>
+                </span>
+                ` : ''}
+                ${icons.x ? `
+                <span style="padding-left: 8px;">
+                  <a href="https://www.x.com/" style="display: inline-block; padding: 0px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}x-icon.png" alt="twitter" width="24" style="width: 24px; font-size: 0;"/></a>
+                </span>
+                ` : ''}
+                ${icons.facebook ? `
+                <span style="padding-left: 8px;">
+                  <a href="https://www.facebook.com/" style="display: inline-block; padding: 0px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}facebook-icon.png" alt="facebook" width="24" style="width: 24px; font-size: 0;"/></a>
+                </span>
+                ` : ''}
+                ${icons.instagram ? `
+                <span style="padding-left: 8px;">
+                  <a href="https://www.instagram.com/" style="display: inline-block; padding: 0px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}instagram-icon.png" alt="instagram" width="24" style="width: 24px; font-size: 0;"/></a>
+                </span>
+                ` : ''}
+                ${icons.whatsapp ? `
+                <span style="padding-left: 8px;">
+                  <a href="https://www.whatsapp.com/" style="display: inline-block; padding: 0px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}whatsapp-icon.png" alt="whatsapp" width="24" style="width: 24px; font-size: 0;"/></a>
+                </span>
+                ` : ''}
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
+            <tr style="background: #fff;">
+              <td style="background: #fff; text-align: left; padding-top: 10px;">
+                <a style="font-size: 10px; font-weight: 700; border-radius: 5px; padding: 5px 12px; background-color: #CFE0FF; text-decoration: none; color: #1155CB" title="https://www.emico.nl/vacatures/" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="https://www.emico.nl/vacatures/">We're hiring!</a>
+              </td>
+              <td style="background: #fff;"></td>
+              <td style="background: #fff; text-align: right; padding-top: 10px;">
+                <p style="color: #828282; font-size: 10px;">${workdays && `(Werkzaam op: ${workdays})`}</p>
+              </td>
+            </tr>
           </table>
         </td>
       </tr>
@@ -155,6 +235,22 @@ Content-Transfer-Encoding: 8bit`
               className="p-3 w-full"
             />
           </div>
+        </div>
+
+        <div className="input w-full flex flex-row flex-wrap gap-6 items-center p-3">
+          <div className="text-sm font-bold">Social icons</div>
+          {Object.keys(icons).map((name) => (
+            <label key={name} className="flex items-center">
+              <input
+                id={name.charAt(0).toUpperCase() + name.slice(1)}
+                type="checkbox"
+                checked={icons[name]}
+                onChange={() => toggleIcon(name)}
+                className="w-5 h-5 bg-[#212121] border-none rounded accent-[#212121] cursor-pointer focus:outline-none mr-2"
+              />
+              <span>{name.charAt(0).toUpperCase() + name.slice(1)}</span>
+            </label>
+          ))}
         </div>
 
         <h2 className="text-xl font-bold mb-4 mt-8">Preview</h2>

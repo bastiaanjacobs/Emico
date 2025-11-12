@@ -41,7 +41,7 @@ button, input, textarea {
   }
 }
 
-input {
+input, .input {
   @apply text-[#f1f1f1] bg-[#303030] border border-[#303030] rounded-md;
 }
 
@@ -65,5 +65,11 @@ h1 {
 
   img, svg {
     @apply inline;
+  }
+
+  table, tr, td {
+    &:hover {
+      outline: 1px dashed #008A50;
+    }
   }
 }
