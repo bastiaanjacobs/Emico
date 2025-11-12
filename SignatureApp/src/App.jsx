@@ -46,14 +46,14 @@ Content-Transfer-Encoding: 8bit`
         <td>
           <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
             <tr>
-              <td style="vertical-align: top; text-align: left; width: 100px; height: 100px;">
-                <img src="${logoSrc}" alt="Emico Logo" height="100px" width="100px" style="width: 100px; height: 100px; padding: 10px; background-color: ${mainColor};"/>
+              <td style="vertical-align: top; text-align: left; width: 85px; height: 85px;">
+                <img src="${logoSrc}" alt="Emico Logo" height="85" width="85" style="width: 85px; height: 85px; padding: 10px; background-color: ${mainColor};"/>
               </td>
               <td style="vertical-align: top; padding: 0 10px 10px 15px; width: 270px;">
-                <p style="margin: 0 0 8px 0; font-size: 24px; font-weight: bold; line-height: 1.2; color: #333;">${name}</p>
+                <p style="margin: 0 0 8px 0; font-size: 20px; font-weight: bold; line-height: 1.2; color: #333;">${name}</p>
                 <p style="margin: 0;">
-                  <img height="12px" width="11px" src="${baseUrl}slash.png" alt="Slash Icon" style="margin-right: 8px; height: 12px; width: 11px;"/>
-                  <span style="font-weight: 500; font-style: normal; color: #505050; font-size: 14px; letter-spacing: 0.5px; white-space: pre-wrap; text-transform: uppercase;">${title}</span>
+                  <img height="12" width="11" src="${baseUrl}slash.png" alt="Slash Icon" style="margin-right: 8px; height: 12px; width: 11px;"/>
+                  <span style="font-weight: 500; font-style: normal; color: #505050; font-size: 12px; letter-spacing: 0.5px; white-space: pre-wrap; text-transform: uppercase;">${title}</span>
                 </p>
               </td>
               <td style="font-size: 12px; vertical-align: top; padding: 0 10px 10px 0; text-align: right; width: 210px;">
@@ -78,7 +78,7 @@ Content-Transfer-Encoding: 8bit`
         <td>
           <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
             <tr style="height: 40px; border-top: 1px solid #fafafa;">
-              <td style="vertical-align: middle; background: ${bgColor}; position: relative; height: 40px; width: 100px;">
+              <td style="vertical-align: middle; background: ${bgColor}; position: relative; height: 40px; width: 85px;">
                 <img src="${uspSrc}" alt="GPTW Logo" style="position: absolute; top: 0; left: 0; bottom: 0; width: 40px; height: 40px; background: ${mainColor}; overflow: hidden;"/>
               </td>
               <td style="vertical-align: middle; background: ${bgColor}; text-align: left; width: 270px; padding-left: 15px;">
