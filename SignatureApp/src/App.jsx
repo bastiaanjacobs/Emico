@@ -59,15 +59,15 @@ Content-Transfer-Encoding: 8bit`
               <td style="font-size: 12px; vertical-align: top; padding: 0 10px 10px 0; text-align: right; width: 210px;">
                 <p style="padding-bottom: 5px;">
                   <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">PHONE</span>
-                  <span style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;"><img src="slash-dark.png" alt="Slash Icon" style="margin: 0 4px;"/>${phone}</span>
+                  <span style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" style="margin: 0 4px; font-size: 0;"/>${phone}</span>
                 </p>
                 <p style="padding-bottom: 5px;">
                   <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">WEBSITE</span>
-                  <a href="https://www.emico.nl" style="color: #333; font-size: 12px; text-decoration: none; font-weight: 600;"><img src="slash-dark.png" alt="Slash Icon" style="margin: 0 4px;"/>www.emico.nl</a>
+                  <a href="https://www.emico.nl" style="color: #333; font-size: 12px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" style="margin: 0 4px; font-size: 0;"/>www.emico.nl</a>
                 </p>
                 <p>
                   <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">EMAIL</span>
-                  <a href="mailto:${email}" style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;"><img src="slash-dark.png" alt="Slash Icon" style="margin: 0 4px;"/>${email}</a>
+                  <a href="mailto:${email}" style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" style="margin: 0 4px; font-size: 0;"/>${email}</a>
                 </p>
               </td>
             </tr>
