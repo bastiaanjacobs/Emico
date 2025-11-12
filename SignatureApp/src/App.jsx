@@ -77,7 +77,7 @@ Content-Transfer-Encoding: 8bit`
       <tr>
         <td>
           <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
-            <tr style="height: 40px; border-top: 1px solid #fafafa;">
+            <tr style="height: 40px;">
               <td style="vertical-align: middle; background: ${bgColor}; position: relative; height: 40px; width: 85px;">
                 <img src="${uspSrc}" alt="GPTW Logo" style="position: absolute; top: 0; left: 0; bottom: 0; width: 40px; height: 40px; background: ${mainColor}; overflow: hidden;"/>
               </td>
