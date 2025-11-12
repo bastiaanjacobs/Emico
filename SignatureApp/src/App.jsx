@@ -81,7 +81,7 @@ Content-Transfer-Encoding: 8bit`
               <td style="vertical-align: middle; background: ${bgColor}; position: relative; height: 40px; width: 85px;">
                 <img src="${uspSrc}" alt="GPTW Logo" style="position: absolute; top: 0; left: 0; bottom: 0; width: 40px; height: 40px; background: ${mainColor}; overflow: hidden;"/>
               </td>
-              <td style="vertical-align: middle; background: ${bgColor}; text-align: left; width: 270px; padding-left: 15px;">
+              <td style="vertical-align: middle; background: ${bgColor}; text-align: left; width: 285px; padding-left: 15px;">
                 <p style="font-size: 10px; margin: 0;">
                   <img src="${baseUrl}address-icon.png" alt="Address Icon" style="width: 15px; height: 15px; background: ${mainColor}; overflow: hidden; margin-right: 5px;"/>
                   <span>${address}</span>
