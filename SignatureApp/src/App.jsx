@@ -41,33 +41,33 @@ Content-Transfer-Encoding: 8bit`
 
   const signatureHtml = `<html>
   <body>
-    <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px; color: #111; background: #fff; width: 600px;">
+    <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px; color: #111; background: #fff; width: 580px;">
       <tr>
         <td>
           <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
             <tr>
-              <td style="vertical-align: top; text-align: left; width: 120px; height: 120px;">
-                <img src="${logoSrc}" alt="Emico Logo" style="width: 120px; height: 120px; padding: 10px; background-color: ${mainColor};"/>
+              <td style="vertical-align: top; text-align: left; width: 100px; height: 100px;">
+                <img src="${logoSrc}" alt="Emico Logo" style="width: 100px; height: 100px; padding: 10px; background-color: ${mainColor};"/>
               </td>
-              <td style="vertical-align: top; padding: 10px 10px 10px 15px; width: 270px;">
-                <p style="margin: 0 0 8px 0; font-size: 28px; font-weight: bold; line-height: 1.2; color: #333;">${name}</p>
+              <td style="vertical-align: top; padding: 0 10px 10px 15px; width: 270px;">
+                <p style="margin: 0 0 8px 0; font-size: 24px; font-weight: bold; line-height: 1.2; color: #333;">${name}</p>
                 <p>
-                  <img src="slash.png" alt="Slash Icon" style="margin-right: 8px;"/>
+                  <img src="${baseUrl}slash.png" alt="Slash Icon" style="margin-right: 8px;"/>
                   <span style="font-weight: 500; font-style: normal; color: #505050; font-size: 14px; letter-spacing: 0.5px; white-space: pre-wrap; text-transform: uppercase;">${title}</span>
                 </p>
               </td>
-              <td style="font-size: 12px; vertical-align: top; padding: 10px; text-align: right; width: 210px;">
+              <td style="font-size: 12px; vertical-align: top; padding: 0 10px 10px 0; text-align: right; width: 210px;">
                 <p style="padding-bottom: 5px;">
-                  <span style="display: block; font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">PHONE</span>
-                  <span style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;">${phone}</span>
+                  <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">PHONE</span>
+                  <span style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;"><img src="slash-dark.png" alt="Slash Icon" style="margin: 0 4px;"/>${phone}</span>
                 </p>
                 <p style="padding-bottom: 5px;">
-                  <span style="display: block; font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">WEBSITE</span>
-                  <a href="https://www.emico.nl" style="color: #333; font-size: 12px; text-decoration: none; font-weight: 600;">www.emico.nl</a>
+                  <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">WEBSITE</span>
+                  <a href="https://www.emico.nl" style="color: #333; font-size: 12px; text-decoration: none; font-weight: 600;"><img src="slash-dark.png" alt="Slash Icon" style="margin: 0 4px;"/>www.emico.nl</a>
                 </p>
                 <p>
-                  <span style="display: block; font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">EMAIL</span>
-                  <a href="mailto:${email}" style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;">${email}</a>
+                  <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">EMAIL</span>
+                  <a href="mailto:${email}" style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;"><img src="slash-dark.png" alt="Slash Icon" style="margin: 0 4px;"/>${email}</a>
                 </p>
               </td>
             </tr>
