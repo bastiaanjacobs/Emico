@@ -14,7 +14,8 @@ function App() {
   const logoSrc = baseUrl+'logo.svg';
   const uspSrc = baseUrl+'gptw-outline.svg';
 
-  const mainColor = "#212121"; // default Color
+  const mainColor = "#212121"; // Default Color
+  const bgColor = "#fafafa"; // Background Color
 
   const copyToClipboard = (signatureHtml) => {
     navigator.clipboard.writeText(signatureHeader + "\n\n" + signatureHtml);
@@ -24,10 +25,10 @@ function App() {
 
   const [icons, setIcons] = useState({
     linkedin: true,
-    x: true,
-    facebook: true,
-    instagram: true,
     whatsapp: true,
+    x: false,
+    facebook: false,
+    instagram: false,
   });
 
   const toggleIcon = (name) => {
@@ -40,7 +41,7 @@ Content-Transfer-Encoding: 8bit`
 
   const signatureHtml = `<html>
   <body>
-    <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px; color: #111; background: #fafafa; width: 100%; min-width: 500px; max-width: 600px;">
+    <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px; color: #111; background: #fff; width: 600px;">
       <tr>
         <td>
           <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
@@ -51,10 +52,11 @@ Content-Transfer-Encoding: 8bit`
               <td style="vertical-align: top; padding: 10px 10px 10px 15px; width: 270px;">
                 <p style="margin: 0 0 8px 0; font-size: 28px; font-weight: bold; line-height: 1.2; color: #333;">${name}</p>
                 <p>
+                  <img src="slash.png" alt="Slash Icon" style="margin-right: 8px;"/>
                   <span style="font-weight: 500; font-style: normal; color: #505050; font-size: 14px; letter-spacing: 0.5px; white-space: pre-wrap; text-transform: uppercase;">${title}</span>
                 </p>
               </td>
-              <td style="font-size: 12px; vertical-align: top; padding: 10px; text-align: right;">
+              <td style="font-size: 12px; vertical-align: top; padding: 10px; text-align: right; width: 210px;">
                 <p style="padding-bottom: 5px;">
                   <span style="display: block; font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">PHONE</span>
                   <span style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;">${phone}</span>
@@ -76,41 +78,28 @@ Content-Transfer-Encoding: 8bit`
         <td>
           <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
             <tr style="height: 40px;">
-              <td style="vertical-align: middle; background: #f5f5f5; position: relative; height: 40px; width: 120px;">
+              <td style="vertical-align: middle; background: ${bgColor}; position: relative; height: 40px; width: 120px;">
                 <img src="${uspSrc}" alt="GPTW Logo" style="position: absolute; top: 0; left: 0; bottom: 0; width: 40px; height: 40px; background: ${mainColor}; overflow: hidden;"/>
               </td>
-              <td style="vertical-align: middle; background: #f5f5f5; padding-left: 15px; text-align: left; width: 270px;">
-                <p style="font-size: 10px;">
-                  <img src="${baseUrl}address-icon.png" alt="Address Emico" width="auto" height="20px" style="height: 20px;"/>
-                  <span style="margin-left: 5px;">${address}</span>
-                </p>
+              <td style="vertical-align: middle; background: ${bgColor}; padding-left: 15px; text-align: left; width: 270px;">
+                <p style="font-size: 10px;">${address}</p>
               </td>
-              <td style="padding-right: 10px; text-align: right; vertical-align: middle; background: #f5f5f5;">
-                ${icons.linkedin ? `
-                <span style="padding-left: 8px;">
-                  <a href="https://www.linkedin.com/" style="display: inline-block; padding: 0px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}linkedin-icon.png" alt="linkedin" width="24" style="width: 24px; font-size: 0;"/></a>
-                </span>
-                ` : ''}
-                ${icons.x ? `
-                <span style="padding-left: 8px;">
-                  <a href="https://www.x.com/" style="display: inline-block; padding: 0px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}x-icon.png" alt="twitter" width="24" style="width: 24px; font-size: 0;"/></a>
-                </span>
-                ` : ''}
-                ${icons.facebook ? `
-                <span style="padding-left: 8px;">
-                  <a href="https://www.facebook.com/" style="display: inline-block; padding: 0px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}facebook-icon.png" alt="facebook" width="24" style="width: 24px; font-size: 0;"/></a>
-                </span>
-                ` : ''}
-                ${icons.instagram ? `
-                <span style="padding-left: 8px;">
-                  <a href="https://www.instagram.com/" style="display: inline-block; padding: 0px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}instagram-icon.png" alt="instagram" width="24" style="width: 24px; font-size: 0;"/></a>
-                </span>
-                ` : ''}
-                ${icons.whatsapp ? `
-                <span style="padding-left: 8px;">
-                  <a href="https://www.whatsapp.com/" style="display: inline-block; padding: 0px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}whatsapp-icon.png" alt="whatsapp" width="24" style="width: 24px; font-size: 0;"/></a>
-                </span>
-                ` : ''}
+              <td style="padding-right: 10px; text-align: right; vertical-align: middle; background: ${bgColor};">
+                ${icons.linkedin ? `<span style="padding-left: 8px;">
+                  <a href="https://nl.linkedin.com/company/emico-e-commerce" style="display: inline-block; height: 24px; width: 24px; padding: 0px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}linkedin-icon.png" alt="linkedin" height="24" width="24" style="height: 24px; width: 24px; font-size: 0;"/></a>
+                </span>` : ''}
+                ${icons.whatsapp ? `<span style="padding-left: 8px;">
+                  <a href="https://wa.me/31858887744" style="display: inline-block; height: 24px; width: 24px; padding: 0px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}whatsapp-icon.png" alt="whatsapp" height="24" width="24" style="height: 24px; width: 24px; font-size: 0;"/></a>
+                </span>` : ''}
+                ${icons.x ? `<span style="padding-left: 8px;">
+                  <a href="https://www.x.com/" style="display: inline-block; height: 24px; width: 24px; padding: 0px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}x-icon.png" alt="twitter" height="24" width="24" style="height: 24px; width: 24px; font-size: 0;"/></a>
+                </span>` : ''}
+                ${icons.facebook ? `<span style="padding-left: 8px;">
+                  <a href="https://www.facebook.com/" style="display: inline-block; height: 24px; width: 24px; padding: 0px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}facebook-icon.png" alt="facebook" height="24" width="24" style="height: 24px; width: 24px; font-size: 0;"/></a>
+                </span>` : ''}
+                ${icons.instagram ? `<span style="padding-left: 8px;">
+                  <a href="https://www.instagram.com/" style="display: inline-block; height: 24px; width: 24px; padding: 0px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}instagram-icon.png" alt="instagram" height="24" width="24" style="height: 24px; width: 24px; font-size: 0;"/></a>
+                </span>` : ''}
               </td>
             </tr>
           </table>
