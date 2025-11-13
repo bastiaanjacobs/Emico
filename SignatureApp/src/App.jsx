@@ -51,10 +51,10 @@ Content-Transfer-Encoding: 8bit`
                 <img src="${logoSrc}" alt="Emico Logo" height="85" width="85" style="width: 80px; height: 80px; padding: 10px; background-color: ${mainColor};"/>
               </td>
               <td style="vertical-align: top; padding: 0 10px 10px 15px; width: 280px;">
-                <p style="margin: 0 0 8px 0; font-size: 20px; font-weight: bold; line-height: 1.2; color: #333;">${name}</p>
+                <p style="margin: 0 0 5px 0; font-size: 18px; font-weight: bold; line-height: 1.2; color: #333;">${name}</p>
                 <p style="margin: 0;">
-                  <img height="12" width="11" src="${baseUrl}slash.png" alt="Slash Icon" style="margin-right: 8px; height: 12px; width: 11px;"/>
-                  <span style="font-weight: 500; font-style: normal; color: #505050; font-size: 12px; letter-spacing: 0.5px; white-space: pre-wrap; text-transform: uppercase;">${title}</span>
+                  <img height="10" width="9" src="${baseUrl}slash.png" alt="Slash Icon" style="margin-right: 8px; height: 10px; width: 9px;"/>
+                  <span style="font-weight: 500; font-style: normal; color: #505050; font-size: 10px; letter-spacing: 0.5px; white-space: pre-wrap; text-transform: uppercase;">${title}</span>
                 </p>
               </td>
               <td style="font-size: 12px; vertical-align: top; padding: 0 10px 10px 0; text-align: right; width: 210px;">
