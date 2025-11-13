@@ -16,6 +16,7 @@ function App() {
 
   const mainColor = "#212121"; // Default Color
   const bgColor = "#fafafa"; // Background Color
+  const accentColor = "#cfe0ff"; // Accent Color
 
   const copyToClipboard = (signatureHtml) => {
     navigator.clipboard.writeText(signatureHeader + "\n\n" + signatureHtml);
@@ -46,10 +47,10 @@ Content-Transfer-Encoding: 8bit`
         <td>
           <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
             <tr>
-              <td style="vertical-align: top; text-align: left; width: 85px; height: 85px;">
-                <img src="${logoSrc}" alt="Emico Logo" height="85" width="85" style="width: 85px; height: 85px; padding: 10px; background-color: ${mainColor};"/>
+              <td style="vertical-align: top; text-align: left; width: 80px; height: 80px;">
+                <img src="${logoSrc}" alt="Emico Logo" height="85" width="85" style="width: 80px; height: 80px; padding: 10px; background-color: ${mainColor};"/>
               </td>
-              <td style="vertical-align: top; padding: 0 10px 10px 15px; width: 285px;">
+              <td style="vertical-align: top; padding: 0 10px 10px 15px; width: 280px;">
                 <p style="margin: 0 0 8px 0; font-size: 20px; font-weight: bold; line-height: 1.2; color: #333;">${name}</p>
                 <p style="margin: 0;">
                   <img height="12" width="11" src="${baseUrl}slash.png" alt="Slash Icon" style="margin-right: 8px; height: 12px; width: 11px;"/>
@@ -78,12 +79,12 @@ Content-Transfer-Encoding: 8bit`
         <td>
           <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
             <tr style="height: 40px;">
-              <td style="vertical-align: middle; background: ${bgColor}; position: relative; height: 40px; width: 85px;">
-                <img src="${uspSrc}" alt="GPTW Logo" style="position: absolute; top: 0; left: 0; bottom: 0; width: 40px; height: 40px; background: ${mainColor}; overflow: hidden;"/>
+              <td style="vertical-align: middle; background: ${accentColor}; position: relative; height: 40px; width: 80px;">
+                <img src="${baseUrl}gptw-outline.png" alt="GPTW Logo" style="position: absolute; top: 0; left: 0; bottom: 0; width: 40px; height: 40px;"/>
               </td>
-              <td style="vertical-align: middle; background: ${bgColor}; text-align: left; width: 285px; padding-left: 15px;">
+              <td style="vertical-align: middle; background: ${bgColor}; text-align: left; width: 280px; padding-left: 15px;">
                 <p style="font-size: 10px; margin: 0;">
-                  <img src="${baseUrl}address-icon.png" alt="Address Icon" style="width: 15px; height: 15px; background: ${mainColor}; overflow: hidden; margin-right: 5px;"/>
+                  <img src="${baseUrl}address-icon.png" alt="Address Icon" style="width: 12px; height: 12px; margin-right: 5px;"/>
                   <span>${address}</span>
                 </p>
               </td>
@@ -105,7 +106,7 @@ Content-Transfer-Encoding: 8bit`
               <td style="background: #fff; text-align: right; padding-top: 10px;">
                 <p style="color: #828282; font-size: 10px; padding: 0; margin: 0;">
                   ${workdays && `(Werkzaam op: ${workdays})`}
-                  <a style="font-size: 10px; font-weight: 700; display: inline-block; border-radius: 5px; margin-left: 10px; padding: 5px 12px; background-color: #CFE0FF; text-decoration: none; color: #1155CB" title="https://www.emico.nl/vacatures/" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="https://www.emico.nl/vacatures/">We're hiring!</a>
+                  <a style="font-size: 10px; font-weight: 700; display: inline-block; border-radius: 5px; margin-left: 10px; padding: 5px 12px; background-color: ${accentColor}; text-decoration: none; color: #1155CB" title="https://www.emico.nl/vacatures/" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="https://www.emico.nl/vacatures/">We're hiring!</a>
                 </p>
               </td>
             </tr>
