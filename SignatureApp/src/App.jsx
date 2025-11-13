@@ -8,11 +8,17 @@ function App() {
   const [email, setEmail] = useState("info@emico.nl");
   const [phone, setPhone] = useState("+31 85 888 77 44");
   const [address, setAddress] = useState("Utrechtsestraatweg 157, 3911 TS Rhenen");
+  const [mobile, setMobile] = useState("06 1234 5678");
 
   const baseUrl = 'https://bastiaanjacobs.github.io/Emico/';
   const [copied, setCopied] = useState(false);
-  const logoSrc = baseUrl+'logo.png';
+  const logoSrc = baseUrl+'logo.svg';
   const logoSize = '80';
+
+  const mailWidth = '580px';
+  const firstColWidth = '80px';
+  const secondColWidth = '300px';
+  const thirdColWidth = '200px';
 
   const mainColor = "#212121"; // Default Color
   const bgColor = "#fafafa"; // Background Color
@@ -42,33 +48,39 @@ Content-Transfer-Encoding: 8bit`
 
   const signatureHtml = `<html>
   <body>
-    <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px; color: #111; background: #fff; width: 580px;">
+    <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px; color: #111; background: #fff; width: ${mailWidth};">
       <tr>
         <td>
           <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
             <tr>
               <td style="vertical-align: top; text-align: left; width: ${logoSize}px; height: ${logoSize}px;">
-                <img src="${logoSrc}" alt="Emico Logo" height="${logoSize}" width="${logoSize}" style="width: ${logoSize}px; height: ${logoSize}px;"/>
+                <img src="${baseUrl}/logo.png" alt="Emico Logo" height="${logoSize}" width="${logoSize}" style="width: ${logoSize}px; height: ${logoSize}px;"/>
               </td>
-              <td style="vertical-align: top; padding: 0 10px 10px 15px; width: 280px;">
-                <p style="margin: 0 0 5px 0; font-size: 18px; font-weight: bold; line-height: 1.2; color: #333;">${name}</p>
-                <p style="margin: 0;">
-                  <img height="10" width="9" src="${baseUrl}slash.png" alt="Slash Icon" style="margin-right: 8px; height: 10px; width: 9px;"/>
+              <td style="vertical-align: top; padding: 0px 10px 0px 15px; width: ${secondColWidth};">
+                <p style="margin: 0 0 3px 0; font-size: 18px; font-weight: bold; line-height: 1.2; color: #333;">${name}</p>
+                <p style="margin: 0 0 5px 0;">
                   <span style="font-weight: 500; font-style: normal; color: #505050; font-size: 10px; letter-spacing: 0.5px; white-space: pre-wrap; text-transform: uppercase;">${title}</span>
+                  <img height="10" width="9" src="${baseUrl}slash.png" alt="Slash Icon" style="margin-left: 2px; height: 10px; width: 9px;"/>
+                </p>
+                <p style="padding: 0px; margin: 0;">
+                 ${mobile ? `<span style="margin-left: 2px;">
+                    <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px;">MOBILE: </span>
+                    <span style="color: #333; font-size: 10px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" width="8" height="8" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>${mobile}</span>
+                  </span>` : ''}
                 </p>
               </td>
-              <td style="font-size: 12px; vertical-align: top; padding: 0 10px 10px 0; text-align: right; width: 210px;">
-                <p style="padding-bottom: 5px; margin: 0;">
-                  <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">PHONE</span>
-                  <span style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" width="8" height="8" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>${phone}</span>
-                </p>
-                <p style="padding-bottom: 5px; margin: 0;">
+              <td style="width: ${thirdColWidth}; text-align: right; vertical-align: top;">
+                <p style="padding-bottom: 3px; margin: 0;">
                   <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">WEBSITE</span>
                   <a href="https://www.emico.nl" style="color: #333; font-size: 12px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" width="8" height="8" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>www.emico.nl</a>
                 </p>
-                <p style="margin: 0;">
-                  <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">EMAIL</span>
-                  <a href="mailto:${email}" style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" width="8" height="8" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>${email}</a>
+                <p style="padding-bottom: 3px; margin: 0;">
+                  <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">PHONE</span>
+                  <span style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" width="8" height="8" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>${phone}</span>
+                </p>
+                <p style="padding-bottom: 3px; margin: 0;">
+                  <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px;">EMAIL: </span>
+                  <a href="mailto:${email}" style="color: #333; font-size: 10px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" width="8" height="8" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>${email}</a>
                 </p>
               </td>
             </tr>
@@ -79,21 +91,21 @@ Content-Transfer-Encoding: 8bit`
         <td>
           <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
             <tr style="height: 40px;">
-              <td style="vertical-align: middle; background: ${accentColor}; position: relative; height: 40px; width: 80px;">
+              <td style="vertical-align: middle; background: ${accentColor}; position: relative; height: 40px; width: ${firstColWidth};">
                 <img src="${baseUrl}gptw-outline.png" alt="GPTW Logo" width="40" height="40" style="position: absolute; top: 0; left: 0; bottom: 0; width: 40px; height: 40px;"/>
               </td>
-              <td style="vertical-align: middle; background: ${bgColor}; text-align: left; width: 280px; padding-left: 15px;">
+              <td style="vertical-align: middle; background: ${bgColor}; text-align: left; width: ${secondColWidth}; padding-left: 15px;">
                 <p style="font-size: 10px; margin: 0;">
                   <img src="${baseUrl}address-icon.png" alt="Address Icon" width="12" height="12" style="width: 12px; height: 12px; margin-right: 5px;"/>
                   <span>${address}</span>
                 </p>
               </td>
-              <td style="padding-right: 10px; text-align: right; vertical-align: middle; background: ${bgColor};">
-                ${icons.linkedin ? `<span style="padding-left: 8px;"><a href="https://nl.linkedin.com/company/emico-e-commerce" style="display: inline-block; height: 24px; width: 24px; padding: 0px; background-color: ${mainColor}; border-radius: 5px; overflow: hidden;"><img src="${baseUrl}linkedin-icon.png" alt="linkedin" height="24" width="24" style="height: 24px; width: 24px; font-size: 0;"/></a></span>` : ''}
-                ${icons.whatsapp ? `<span style="padding-left: 8px;"><a href="https://wa.me/31858887744" style="display: inline-block; height: 24px; width: 24px; padding: 0px; background-color: ${mainColor}; border-radius: 5px; overflow: hidden;"><img src="${baseUrl}whatsapp-icon.png" alt="whatsapp" height="24" width="24" style="height: 24px; width: 24px; font-size: 0;"/></a></span>` : ''}
-                ${icons.x ? `<span style="padding-left: 8px;"><a href="https://www.x.com/" style="display: inline-block; height: 24px; width: 24px; padding: 0px; background-color: ${mainColor}; border-radius: 5px; overflow: hidden;"><img src="${baseUrl}x-icon.png" alt="twitter" height="24" width="24" style="height: 24px; width: 24px; font-size: 0;"/></a></span>` : ''}
-                ${icons.facebook ? `<span style="padding-left: 8px;"><a href="https://www.facebook.com/" style="display: inline-block; height: 24px; width: 24px; padding: 0px; background-color: ${mainColor}; border-radius: 5px; overflow: hidden;"><img src="${baseUrl}facebook-icon.png" alt="facebook" height="24" width="24" style="height: 24px; width: 24px; font-size: 0;"/></a></span>` : ''}
-                ${icons.instagram ? `<span style="padding-left: 8px;"><a href="https://www.instagram.com/" style="display: inline-block; height: 24px; width: 24px; padding: 0px; background-color: ${mainColor}; border-radius: 5px; overflow: hidden;"><img src="${baseUrl}instagram-icon.png" alt="instagram" height="24" width="24" style="height: 24px; width: 24px; font-size: 0;"/></a></span>` : ''}
+              <td style="padding-right: 10px; text-align: right; vertical-align: middle; background: ${bgColor}; width: ${thirdColWidth};">
+                ${icons.linkedin ? `<a href="https://nl.linkedin.com/company/emico-e-commerce" style="display: inline-block; height: 24px; width: 24px; padding: 0px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px; overflow: hidden;"><img src="${baseUrl}linkedin-icon.png" alt="linkedin" height="24" width="24" style="height: 24px; width: 24px; font-size: 0;"/></a>` : ''}
+                ${icons.whatsapp ? `<a href="https://wa.me/31858887744" style="display: inline-block; height: 24px; width: 24px; padding: 0px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px; overflow: hidden;"><img src="${baseUrl}whatsapp-icon.png" alt="whatsapp" height="24" width="24" style="height: 24px; width: 24px; font-size: 0;"/></a>` : ''}
+                ${icons.x ? `<a href="https://www.x.com/" style="display: inline-block; height: 24px; width: 24px; padding: 0px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px; overflow: hidden;"><img src="${baseUrl}x-icon.png" alt="twitter" height="24" width="24" style="height: 24px; width: 24px; font-size: 0;"/></a>` : ''}
+                ${icons.facebook ? `<a href="https://www.facebook.com/" style="display: inline-block; height: 24px; width: 24px; padding: 0px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px; overflow: hidden;"><img src="${baseUrl}facebook-icon.png" alt="facebook" height="24" width="24" style="height: 24px; width: 24px; font-size: 0;"/></a>` : ''}
+                ${icons.instagram ? `<a href="https://www.instagram.com/" style="display: inline-block; height: 24px; width: 24px; padding: 0px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px; overflow: hidden;"><img src="${baseUrl}instagram-icon.png" alt="instagram" height="24" width="24" style="height: 24px; width: 24px; font-size: 0;"/></a>` : ''}
               </td>
             </tr>
           </table>
@@ -127,14 +139,14 @@ Content-Transfer-Encoding: 8bit`
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-3 w-3">
               <path strokeLinecap="round" strokeLinejoin="round" d="m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z" />
             </svg>
-            MailData Signatures
+            <span>MailData Signatures</span>
           </span>
         </div>
       </div>
       <div className="container mx-auto px-4 max-w-5xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 my-8">
-          <div className="w-full">
-            <label htmlFor="name" className="text-sm block mb-2 font-bold">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4 my-8">
+          <div className="w-full text-xs">
+            <label htmlFor="name" className="text-xs block mb-2 font-bold">
               Name
             </label>
             <input
@@ -144,11 +156,11 @@ Content-Transfer-Encoding: 8bit`
               autoComplete="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="p-3 w-full"
+              className="p-3 w-full text-xs"
             />
           </div>
-          <div className="w-full">
-            <label htmlFor="title" className="text-sm block mb-2 font-bold">
+          <div className="w-full text-xs">
+            <label htmlFor="title" className="text-xs block mb-2 font-bold">
               Title
             </label>
             <input
@@ -158,11 +170,11 @@ Content-Transfer-Encoding: 8bit`
               autoComplete="organization-title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="p-3 w-full"
+              className="p-3 w-full text-xs"
             />
           </div>
-          <div className="w-full">
-            <label htmlFor="workdays" className="text-sm block mb-2 font-bold">
+          <div className="w-full text-xs">
+            <label htmlFor="workdays" className="text-xs block mb-2 font-bold">
               Workdays
             </label>
             <input
@@ -172,11 +184,11 @@ Content-Transfer-Encoding: 8bit`
               autoComplete="off"
               value={workdays}
               onChange={(e) => setWorkdays(e.target.value)}
-              className="p-3 w-full"
+              className="p-3 w-full text-xs"
             />
           </div>
-          <div className="w-full">
-            <label htmlFor="email" className="text-sm block mb-2 font-bold">
+          <div className="w-full text-xs">
+            <label htmlFor="email" className="text-xs block mb-2 font-bold">
               Email
             </label>
             <input
@@ -186,11 +198,11 @@ Content-Transfer-Encoding: 8bit`
               autoComplete="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="p-3 w-full"
+              className="p-3 w-full text-xs"
             />
           </div>
-          <div className="w-full">
-            <label htmlFor="phone" className="text-sm block mb-2 font-bold">
+          <div className="w-full text-xs">
+            <label htmlFor="phone" className="text-xs block mb-2 font-bold">
               Phone
             </label>
             <input
@@ -200,11 +212,11 @@ Content-Transfer-Encoding: 8bit`
               autoComplete="tel"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="p-3 w-full"
+              className="p-3 w-full text-xs"
             />
           </div>
-          <div className="w-full">
-            <label htmlFor="address" className="text-sm block mb-2 font-bold">
+          <div className="w-full text-xs">
+            <label htmlFor="address" className="text-xs block mb-2 font-bold">
               Address
             </label>
             <input
@@ -214,25 +226,43 @@ Content-Transfer-Encoding: 8bit`
               autoComplete="street-address"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-              className="p-3 w-full"
+              className="p-3 w-full text-xs"
             />
           </div>
-        </div>
-
-        <div className="input w-full flex flex-row flex-wrap gap-6 items-center p-3">
-          <div className="text-sm font-bold">Social icons</div>
-          {Object.keys(icons).map((name) => (
-            <label key={name} className="flex items-center">
-              <input
-                id={name.charAt(0).toUpperCase() + name.slice(1)}
-                type="checkbox"
-                checked={icons[name]}
-                onChange={() => toggleIcon(name)}
-                className="w-5 h-5 bg-[#212121] border-none rounded accent-[#212121] cursor-pointer focus:outline-none mr-2"
-              />
-              <span>{name.charAt(0).toUpperCase() + name.slice(1)}</span>
+          <div className="w-full text-xs">
+            <label htmlFor="mobile" className="text-xs block mb-2 font-bold">
+              Mobile
             </label>
-          ))}
+            <input
+              id="mobile"
+              type="text"
+              placeholder="Mobile"
+              autoComplete="tel"
+              value={mobile}
+              onChange={(e) => setMobile(e.target.value)}
+              className="p-3 w-full text-xs"
+            />
+          </div>
+
+          <div className="w-full text-xs md:col-span-2">
+            <label htmlFor="mobile" className="text-xs block mb-2 font-bold">
+              Social icons
+            </label>
+            <div className="input p-3 flex flex-row flex-wrap gap-4 items-center">
+              {Object.keys(icons).map((name) => (
+                <label key={name} className="flex items-center">
+                  <input
+                    id={name.charAt(0).toUpperCase() + name.slice(1)}
+                    type="checkbox"
+                    checked={icons[name]}
+                    onChange={() => toggleIcon(name)}
+                    className="text-xs w-4 h-4 bg-[#212121] border-none rounded accent-[#212121] cursor-pointer focus:outline-none mr-2"
+                  />
+                  <span className="text-xs">{name.charAt(0).toUpperCase() + name.slice(1)}</span>
+                </label>
+              ))}
+            </div>
+          </div>
         </div>
 
         <h2 className="text-xl font-bold mb-4 mt-8">Preview</h2>
