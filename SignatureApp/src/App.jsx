@@ -11,8 +11,8 @@ function App() {
 
   const baseUrl = 'https://bastiaanjacobs.github.io/Emico/';
   const [copied, setCopied] = useState(false);
-  const logoSrc = baseUrl+'logo.svg';
-  const uspSrc = baseUrl+'gptw-outline.svg';
+  const logoSrc = baseUrl+'logo.png';
+  const logoSize = '80';
 
   const mainColor = "#212121"; // Default Color
   const bgColor = "#fafafa"; // Background Color
@@ -47,8 +47,8 @@ Content-Transfer-Encoding: 8bit`
         <td>
           <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
             <tr>
-              <td style="vertical-align: top; text-align: left; width: 80px; height: 80px;">
-                <img src="${logoSrc}" alt="Emico Logo" height="85" width="85" style="width: 80px; height: 80px; padding: 10px; background-color: ${mainColor};"/>
+              <td style="vertical-align: top; text-align: left; width: ${logoSize}px; height: ${logoSize}px;">
+                <img src="${logoSrc}" alt="Emico Logo" height="${logoSize}" width="${logoSize}" style="width: ${logoSize}px; height: ${logoSize}px;"/>
               </td>
               <td style="vertical-align: top; padding: 0 10px 10px 15px; width: 280px;">
                 <p style="margin: 0 0 5px 0; font-size: 18px; font-weight: bold; line-height: 1.2; color: #333;">${name}</p>
@@ -60,15 +60,15 @@ Content-Transfer-Encoding: 8bit`
               <td style="font-size: 12px; vertical-align: top; padding: 0 10px 10px 0; text-align: right; width: 210px;">
                 <p style="padding-bottom: 5px; margin: 0;">
                   <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">PHONE</span>
-                  <span style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>${phone}</span>
+                  <span style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" width="8" height="8" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>${phone}</span>
                 </p>
                 <p style="padding-bottom: 5px; margin: 0;">
                   <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">WEBSITE</span>
-                  <a href="https://www.emico.nl" style="color: #333; font-size: 12px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>www.emico.nl</a>
+                  <a href="https://www.emico.nl" style="color: #333; font-size: 12px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" width="8" height="8" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>www.emico.nl</a>
                 </p>
                 <p style="margin: 0;">
                   <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">EMAIL</span>
-                  <a href="mailto:${email}" style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>${email}</a>
+                  <a href="mailto:${email}" style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" width="8" height="8" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>${email}</a>
                 </p>
               </td>
             </tr>
@@ -80,11 +80,11 @@ Content-Transfer-Encoding: 8bit`
           <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
             <tr style="height: 40px;">
               <td style="vertical-align: middle; background: ${accentColor}; position: relative; height: 40px; width: 80px;">
-                <img src="${baseUrl}gptw-outline.png" alt="GPTW Logo" style="position: absolute; top: 0; left: 0; bottom: 0; width: 40px; height: 40px;"/>
+                <img src="${baseUrl}gptw-outline.png" alt="GPTW Logo" width="40" height="40" style="position: absolute; top: 0; left: 0; bottom: 0; width: 40px; height: 40px;"/>
               </td>
               <td style="vertical-align: middle; background: ${bgColor}; text-align: left; width: 280px; padding-left: 15px;">
                 <p style="font-size: 10px; margin: 0;">
-                  <img src="${baseUrl}address-icon.png" alt="Address Icon" style="width: 12px; height: 12px; margin-right: 5px;"/>
+                  <img src="${baseUrl}address-icon.png" alt="Address Icon" width="12" height="12" style="width: 12px; height: 12px; margin-right: 5px;"/>
                   <span>${address}</span>
                 </p>
               </td>
