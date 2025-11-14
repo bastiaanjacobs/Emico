@@ -58,27 +58,27 @@ Content-Transfer-Encoding: 8bit`
                 <img src="${baseUrl}logo-dark.png" alt="Emico Logo" height="15" width="80" style="width: 80px; height: 15px;"/>
               </td>
               <td style="vertical-align: top; padding: 0px 0px 0px 15px; width: ${secondColWidth};">
-                <p style="margin: 0 0 3px 0; font-size: 18px; font-weight: bold; line-height: 1.2; color: #333;">${name}</p>
-                <p style="margin: 0 0 5px 0;">
+                <p style="margin: 0px 0px 3px 0px; font-size: 18px; font-weight: bold; line-height: 1.2; color: #333;">${name}</p>
+                <p style="margin: 0px;">
                   <span style="font-weight: 500; font-style: normal; color: #505050; font-size: 10px; letter-spacing: 0.5px; white-space: pre-wrap; text-transform: uppercase;">${title}</span>
                   <img height="10" width="9" src="${baseUrl}slash.png" alt="Slash Icon" style="margin-left: 2px; height: 10px; width: 9px;"/>
                 </p>
               </td>
               <td style="width: ${thirdColWidth}; text-align: right; vertical-align: top; padding: 0px 0px 0px 15px;">
-                <p style="padding-bottom: 3px; margin: 0;">
+                <p style="padding: 0px 0px 3px 0px; margin: 0;">
                   <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">WEBSITE</span>
                   <a href="https://www.emico.nl" style="color: #333; font-size: 10px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" width="8" height="8" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>www.emico.nl</a>
                 </p>
-                <p style="padding-bottom: 3px; margin: 0;">
+                <p style="padding: 0px 0px 3px 0px; margin: 0;">
                   <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">PHONE</span>
                   <span style="color: #333; font-size: 10px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" width="8" height="8" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>${phone}</span>
                 </p>
-                <p style="padding-bottom: 3px; margin: 0;">
+                <p style="padding: 0px 0px 3px 0px; margin: 0;">
                   <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px;">EMAIL</span>
                   <a href="mailto:${email}" style="color: #333; font-size: 10px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" width="8" height="8" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>${email}</a>
                 </p>
-                <p style="padding: 0px; margin: 0;">
-                 ${mobile ? `<span style="margin-left: 2px;">
+                <p style="padding: 0px 0px 3px 0px; margin: 0;">
+                 ${mobile ? `<span>
                     <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px;">MOBILE: </span>
                     <span style="color: #333; font-size: 10px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" width="8" height="8" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>${mobile}</span>
                   </span>` : ''}
