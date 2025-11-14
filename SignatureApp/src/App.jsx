@@ -13,12 +13,13 @@ function App() {
   const baseUrl = 'https://bastiaanjacobs.github.io/Emico/';
   const [copied, setCopied] = useState(false);
   const logoSrc = baseUrl+'logo.svg';
+
   const logoSize = '80';
 
   const mailWidth = '580px';
-  const firstColWidth = '80px';
+  const firstColWidth = '90px';
   const secondColWidth = '300px';
-  const thirdColWidth = '200px';
+  const thirdColWidth = '190px';
 
   const mainColor = "#212121"; // Default Color
   const bgColor = "#fafafa"; // Background Color
@@ -53,34 +54,34 @@ Content-Transfer-Encoding: 8bit`
         <td>
           <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
             <tr>
-              <td style="vertical-align: top; text-align: left; width: ${logoSize}px; height: ${logoSize}px;">
-                <img src="${baseUrl}/logo.png" alt="Emico Logo" height="${logoSize}" width="${logoSize}" style="width: ${logoSize}px; height: ${logoSize}px;"/>
+              <td style="vertical-align: middle; text-align: left; width: ${firstColWidth}; height: 80px; border-right: 1px solid #212121; padding-right: 10px; margin-right: 10px;">
+                <img src="${baseUrl}logo-dark.png" alt="Emico Logo" height="15" width="80" style="width: 80px; height: 15px;"/>
               </td>
-              <td style="vertical-align: top; padding: 0px 10px 0px 15px; width: ${secondColWidth};">
+              <td style="vertical-align: top; padding: 0px 0px 0px 15px; width: ${secondColWidth};">
                 <p style="margin: 0 0 3px 0; font-size: 18px; font-weight: bold; line-height: 1.2; color: #333;">${name}</p>
                 <p style="margin: 0 0 5px 0;">
                   <span style="font-weight: 500; font-style: normal; color: #505050; font-size: 10px; letter-spacing: 0.5px; white-space: pre-wrap; text-transform: uppercase;">${title}</span>
                   <img height="10" width="9" src="${baseUrl}slash.png" alt="Slash Icon" style="margin-left: 2px; height: 10px; width: 9px;"/>
+                </p>
+              </td>
+              <td style="width: ${thirdColWidth}; text-align: right; vertical-align: top; padding: 0px 0px 0px 15px;">
+                <p style="padding-bottom: 3px; margin: 0;">
+                  <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">WEBSITE</span>
+                  <a href="https://www.emico.nl" style="color: #333; font-size: 10px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" width="8" height="8" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>www.emico.nl</a>
+                </p>
+                <p style="padding-bottom: 3px; margin: 0;">
+                  <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">PHONE</span>
+                  <span style="color: #333; font-size: 10px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" width="8" height="8" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>${phone}</span>
+                </p>
+                <p style="padding-bottom: 3px; margin: 0;">
+                  <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px;">EMAIL</span>
+                  <a href="mailto:${email}" style="color: #333; font-size: 10px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" width="8" height="8" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>${email}</a>
                 </p>
                 <p style="padding: 0px; margin: 0;">
                  ${mobile ? `<span style="margin-left: 2px;">
                     <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px;">MOBILE: </span>
                     <span style="color: #333; font-size: 10px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" width="8" height="8" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>${mobile}</span>
                   </span>` : ''}
-                </p>
-              </td>
-              <td style="width: ${thirdColWidth}; text-align: right; vertical-align: top;">
-                <p style="padding-bottom: 3px; margin: 0;">
-                  <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">WEBSITE</span>
-                  <a href="https://www.emico.nl" style="color: #333; font-size: 12px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" width="8" height="8" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>www.emico.nl</a>
-                </p>
-                <p style="padding-bottom: 3px; margin: 0;">
-                  <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px; white-space: pre-wrap;">PHONE</span>
-                  <span style="color: #333; font-size: 12px; text-decoration:none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" width="8" height="8" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>${phone}</span>
-                </p>
-                <p style="padding-bottom: 3px; margin: 0;">
-                  <span style="font-size: 8px; font-weight: 500; font-style: normal; color: rgb(96, 96, 96); letter-spacing: 0.5px;">EMAIL: </span>
-                  <a href="mailto:${email}" style="color: #333; font-size: 10px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" alt="Dark Slash Icon" width="8" height="8" style="margin: 0 4px; font-size: 0; height: 8px; width: 8px;"/>${email}</a>
                 </p>
               </td>
             </tr>
@@ -91,7 +92,7 @@ Content-Transfer-Encoding: 8bit`
         <td>
           <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
             <tr style="height: 40px;">
-              <td style="vertical-align: middle; background: ${accentColor}; position: relative; height: 40px; width: ${firstColWidth};">
+              <td style="vertical-align: middle; background: ${bgColor}; position: relative; height: 40px; width: ${firstColWidth}; border-right: 1px solid #212121;">
                 <img src="${baseUrl}gptw-outline.png" alt="GPTW Logo" width="40" height="40" style="position: absolute; top: 0; left: 0; bottom: 0; width: 40px; height: 40px;"/>
               </td>
               <td style="vertical-align: middle; background: ${bgColor}; text-align: left; width: ${secondColWidth}; padding-left: 15px;">
@@ -101,11 +102,11 @@ Content-Transfer-Encoding: 8bit`
                 </p>
               </td>
               <td style="padding-right: 10px; text-align: right; vertical-align: middle; background: ${bgColor}; width: ${thirdColWidth};">
-                ${icons.linkedin ? `<a href="https://nl.linkedin.com/company/emico-e-commerce" style="display: inline-block; height: 24px; width: 24px; padding: 0px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px; overflow: hidden;"><img src="${baseUrl}linkedin-icon.png" alt="linkedin" height="24" width="24" style="height: 24px; width: 24px; font-size: 0;"/></a>` : ''}
-                ${icons.whatsapp ? `<a href="https://wa.me/31858887744" style="display: inline-block; height: 24px; width: 24px; padding: 0px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px; overflow: hidden;"><img src="${baseUrl}whatsapp-icon.png" alt="whatsapp" height="24" width="24" style="height: 24px; width: 24px; font-size: 0;"/></a>` : ''}
-                ${icons.x ? `<a href="https://www.x.com/" style="display: inline-block; height: 24px; width: 24px; padding: 0px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px; overflow: hidden;"><img src="${baseUrl}x-icon.png" alt="twitter" height="24" width="24" style="height: 24px; width: 24px; font-size: 0;"/></a>` : ''}
-                ${icons.facebook ? `<a href="https://www.facebook.com/" style="display: inline-block; height: 24px; width: 24px; padding: 0px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px; overflow: hidden;"><img src="${baseUrl}facebook-icon.png" alt="facebook" height="24" width="24" style="height: 24px; width: 24px; font-size: 0;"/></a>` : ''}
-                ${icons.instagram ? `<a href="https://www.instagram.com/" style="display: inline-block; height: 24px; width: 24px; padding: 0px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px; overflow: hidden;"><img src="${baseUrl}instagram-icon.png" alt="instagram" height="24" width="24" style="height: 24px; width: 24px; font-size: 0;"/></a>` : ''}
+                ${icons.linkedin ? `<a href="https://nl.linkedin.com/company/emico-e-commerce" style="display: inline-block; height: 20px; width: 20px; padding: 0px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}linkedin-icon.png" alt="linkedin" height="2s" width="2n" style="height: 20px; width: 20px; font-size: 0;"/></a>` : ''}
+                ${icons.whatsapp ? `<a href="https://wa.me/31858887744" style="display: inline-block; height: 20px; width: 20px; padding: 0px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}whatsapp-icon.png" alt="whatsapp" height="2s" width="2n" style="height: 20px; width: 20px; font-size: 0;"/></a>` : ''}
+                ${icons.x ? `<a href="https://www.x.com/" style="display: inline-block; height: 20px; width: 20px; padding: 0px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}x-icon.png" alt="twitter" height="2s" width="2n" style="height: 20px; width: 20px; font-size: 0;"/></a>` : ''}
+                ${icons.facebook ? `<a href="https://www.facebook.com/" style="display: inline-block; height: 20px; width: 20px; padding: 0px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}facebook-icon.png" alt="facebook" height="2s" width="2n" style="height: 20px; width: 20px; font-size: 0;"/></a>` : ''}
+                ${icons.instagram ? `<a href="https://www.instagram.com/" style="display: inline-block; height: 20px; width: 20px; padding: 0px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}instagram-icon.png" alt="instagram" height="2s" width="2n" style="height: 20px; width: 20px; font-size: 0;"/></a>` : ''}
               </td>
             </tr>
           </table>
@@ -266,7 +267,7 @@ Content-Transfer-Encoding: 8bit`
         </div>
 
         <h2 className="text-xl font-bold mb-4 mt-8">Preview</h2>
-        <div className="preview bg-white p-10 rounded-md overflow-auto">
+        <div className="preview overflow-auto">
           <div dangerouslySetInnerHTML={{ __html: signatureHtml }} id="preview"/>
         </div>
 
