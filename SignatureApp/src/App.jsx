@@ -267,7 +267,7 @@ Content-Transfer-Encoding: 8bit`
         </div>
 
         <h2 className="text-xl font-bold mb-4 mt-8">Preview</h2>
-        <div className="preview overflow-auto">
+        <div className="preview bg-white rounded-md p-8 overflow-auto">
           <div dangerouslySetInnerHTML={{ __html: signatureHtml }} id="preview"/>
         </div>
 
@@ -279,8 +279,8 @@ Content-Transfer-Encoding: 8bit`
             readOnly
             className="font-mono text-xs leading-relaxed w-full h-80 p-4 bg-[#171717] rounded-2xl resize-none border border-transparent"
           />
-            <div className="absolute bottom-4 right-4 flex h-9 items-center">
-              <div className="flex items-center gap-4 rounded-sm">
+          <div className="absolute bottom-4 right-4 flex h-9 items-center">
+            <div className="flex items-center gap-4 rounded-sm">
               <button
                 className="text-xs flex gap-1 items-center select-none py-1"
                 aria-label="Copy"
