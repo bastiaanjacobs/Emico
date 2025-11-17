@@ -14,10 +14,10 @@ function App() {
   const [copied, setCopied] = useState(false);
   const logoSrc = baseUrl+'logo.svg';
 
-  const mailWidth = '580px';
-  const firstColWidth = '90px';
-  const secondColWidth = '300px';
-  const thirdColWidth = '190px';
+  const mailWidth = '580';
+  const firstColWidth = '90';
+  const secondColWidth = '300';
+  const thirdColWidth = '190';
 
   const mainColor = "#212121"; // Default Color
   const bgColor = "#fafafa"; // Background Color
@@ -46,73 +46,85 @@ Content-Transfer-Encoding: 8bit`
 
   const signatureHtml = `<html>
   <body>
-    <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px; color: #111; background: #fff; width: ${mailWidth};">
+    <table width="${mailWidth}" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px; color: #111; background: #fff;">
+      <colgroup>
+        <col width="${firstColWidth}">
+        <col width="${secondColWidth}">
+        <col width="${thirdColWidth}">
+      </colgroup>
+      <!-- Row 1: Logo, Name/Title, Contact -->
       <tr>
-        <td>
-          <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
-            <tr>
-              <td style="vertical-align: middle; text-align: left; width: ${firstColWidth}; height: 90px; padding-right: 10px;">
-                <img src="${baseUrl}logo-dark.png" alt="Emico Logo" height="15" width="80" style="width: 80px; height: 15px;"/>
-              </td>
-              <td style="vertical-align: top; padding: 0px 0px 0px 20px; width: ${secondColWidth}; border-left: 1px solid ${mainColor};">
-                <p style="margin: 0px 0px 5px 0px; font-size: 18px; font-weight: bold; line-height: 1.2; color: #333;">${name}</p>
-                <p style="margin: 0px;">
-                  <span style="font-weight: 500; font-style: normal; color: #505050; font-size: 10px; letter-spacing: 0.5px; text-transform: uppercase;">${title}</span>
-                  <img src="${baseUrl}slash.png" height="10" width="9" alt="Slash Icon" style="margin-left: 2px; height: 10px; width: 9px;"/>
-                </p>
-                <p style="color: #828282; font-size: 10px; padding: 0px; margin: 20px 0px 0px 0px;">
-                  ${workdays && `(Werkzaam op: ${workdays})`}
-                </p>
-              </td>
-              <td style="width: ${thirdColWidth}; text-align: right; vertical-align: top; padding: 0px 0px 0px 15px;">
-                <p style="padding: 0px 0px 8px 0px; margin: 0px; line-height: 1;">
-                  <span style="font-size: 8px; font-weight: 500; font-style: normal; color: #505050; letter-spacing: 0.5px;">WEBSITE</span>
-                  <a href="https://www.emico.nl" style="color: #333; font-size: 10px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" width="8" height="8" alt="Dark Slash Icon" style="margin: 0px 4px; font-size: 0px; height: 8px; width: 8px;"/>www.emico.nl</a>
-                </p>
-                <p style="padding: 0px 0px 8px 0px; margin: 0px; line-height: 1;">
-                  <span style="font-size: 8px; font-weight: 500; font-style: normal; color: #505050; letter-spacing: 0.5px;">PHONE</span>
-                  <span style="color: #333; font-size: 10px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" width="8" height="8" alt="Dark Slash Icon" style="margin: 0px 4px; font-size: 0px; height: 8px; width: 8px;"/>${phone}</span>
-                </p>
-                <p style="padding: 0px 0px 8px 0px; margin: 0px; line-height: 1;">
-                  <span style="font-size: 8px; font-weight: 500; font-style: normal; color: #505050; letter-spacing: 0.5px;">EMAIL</span>
-                  <a href="mailto:${email}" style="color: #333; font-size: 10px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" width="8" height="8" alt="Dark Slash Icon" style="margin: 0px 4px; font-size: 0px; height: 8px; width: 8px;"/>${email}</a>
-                </p>
-                ${mobile
-                  ? `<p style="padding: 0px 0px 8px 0px; margin: 0px; line-height: 1;">
-                      <span style="font-size: 8px; font-weight: 500; font-style: normal; color: #505050; letter-spacing: 0.5px;">MOBILE</span>
-                      <span style="color: #333; font-size: 10px; text-decoration: none; font-weight: 600;"><img src="${baseUrl}slash-dark.png" width="8" height="8" alt="Dark Slash Icon" style="margin: 0px 4px; font-size: 0px; height: 8px; width: 8px;"/>${mobile}</span>
-                    </p>`
-                : ''
-                }
-              </td>
-            </tr>
-          </table>
+        <td style="vertical-align: middle; text-align: left; padding-right: 10px; height: 90px;">
+          <img src="${baseUrl}logo-dark.png" alt="Emico Logo" width="80" height="15" style="display: block;"/>
+        </td>
+        <td style="vertical-align: top; padding-left: 20px; border-left: 1px solid ${mainColor};">
+          <p style="margin: 0px 0px 5px 0px; font-size: 18px; font-weight: bold; line-height: 1.2; color: #333;">${name}</p>
+          <p style="margin: 0px; font-size: 10px; color: #505050; letter-spacing: 0.5px; text-transform: uppercase;">
+            ${title}
+            <img src="${baseUrl}slash.png" alt="Slash Icon" width="9" height="10" style="vertical-align: middle; margin-left: 2px;"/>
+          </p>
+          ${workdays ? `<p style="margin: 20px 0 0 0; font-size: 10px; color: #828282;">Werkzaam op: ${workdays}</p>` : ''}
+        </td>
+        <td style="vertical-align: top; text-align: right; padding-left: 15px;">
+          <p style="margin: 0 0 8px 0; font-size: 10px; line-height: 1;">
+            <span style="font-size: 8px; font-weight: 500; color: #505050; letter-spacing: 0.5px;">WEBSITE</span>
+            <a href="https://www.emico.nl" style="color: #333; font-weight: 600; text-decoration: none; font-size: 10px;">
+              <img src="${baseUrl}slash-dark.png" alt="Slash" width="8" height="8" style="vertical-align: middle; margin: 0 4px; display: inline-block;"/>
+              www.emico.nl
+            </a>
+          </p>
+          <p style="margin: 0 0 8px 0; font-size: 10px; line-height: 1;">
+            <span style="font-size: 8px; font-weight: 500; color: #505050; letter-spacing: 0.5px;">PHONE</span>
+            <span style="color: #333; font-weight: 600; font-size: 10px;">
+              <img src="${baseUrl}slash-dark.png" alt="Slash" width="8" height="8" style="vertical-align: middle; margin: 0 4px; display: inline-block;"/>
+              ${phone}
+            </span>
+          </p>
+          <p style="margin: 0 0 8px 0; font-size: 10px; line-height: 1;">
+            <span style="font-size: 8px; font-weight: 500; color: #505050; letter-spacing: 0.5px;">EMAIL</span>
+            <a href="mailto:${email}" style="color: #333; font-weight: 600; font-size: 10px; text-decoration: none;">
+              <img src="${baseUrl}slash-dark.png" alt="Slash" width="8" height="8" style="vertical-align: middle; margin: 0 4px; display: inline-block;"/>
+              ${email}
+            </a>
+          </p>
+          ${mobile ? `<p style="margin: 0 0 8px 0; font-size: 10px; line-height: 1;">
+            <span style="font-size: 8px; font-weight: 500; color: #505050; letter-spacing: 0.5px;">MOBILE</span>
+            <span style="color: #333; font-weight: 600; font-size: 10px;">
+              <img src="${baseUrl}slash-dark.png" alt="Slash" width="8" height="8" style="vertical-align: middle; margin: 0 4px; display: inline-block;"/>
+              ${mobile}
+            </span>
+          </p>` : ''}
         </td>
       </tr>
+      <!-- Row 2: GPTW, Address, Social Icons -->
       <tr>
-        <td>
-          <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
-            <tr style="height: 40px;">
-              <td style="vertical-align: middle; background: ${bgColor}; position: relative; height: 40px; width: ${firstColWidth}; padding-right: 10px;">
-                <a style="text-decoration: none;" title="https://www.emico.nl/vacatures" target="_blank" rel="noopener noreferrer" href="https://www.emico.nl/vacatures">
-                  <img src="${baseUrl}gptw-outline.png" alt="GPTW Logo" width="40" height="40" style="position: absolute; top: 0px; left: 0px; bottom: 0px; width: 40px; height: 40px;"/>
-                </a>
-              </td>
-              <td style="vertical-align: middle; background: ${bgColor}; text-align: left; width: ${secondColWidth}; padding-left: 20px; border-left: 1px solid ${mainColor};">
-                <p style="font-size: 10px; margin: 0px;">
-                  <img src="${baseUrl}address-icon.png" alt="Address Icon" width="12" height="12" style="width: 12px; height: 12px; margin-right: 5px;"/>
-                  <span style="color: #505050;">${address}</span>
-                </p>
-              </td>
-              <td style="padding-right: 10px; text-align: right; vertical-align: middle; background: ${bgColor}; width: ${thirdColWidth};">
-                ${icons.linkedin ? `<a href="https://nl.linkedin.com/company/emico-e-commerce" style="display: inline-block; height: 20px; width: 20px; padding: 0px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}linkedin-icon.png" alt="linkedin" height="20" width="20" style="height: 20px; width: 20px; font-size: 0px;"/></a>` : ''}
-                ${icons.whatsapp ? `<a href="https://wa.me/31858887744" style="display: inline-block; height: 20px; width: 20px; padding: 0px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}whatsapp-icon.png" alt="whatsapp" height="20" width="20" style="height: 20px; width: 20px; font-size: 0px;"/></a>` : ''}
-                ${icons.x ? `<a href="https://www.x.com/" style="display: inline-block; height: 20px; width: 20px; padding: 0px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}x-icon.png" alt="twitter" height="20" width="20" style="height: 20px; width: 20px; font-size: 0px;"/></a>` : ''}
-                ${icons.facebook ? `<a href="https://www.facebook.com/" style="display: inline-block; height: 20px; width: 20px; padding: 0px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}facebook-icon.png" alt="facebook" height="20" width="20" style="height: 20px; width: 20px; font-size: 0px;"/></a>` : ''}
-                ${icons.instagram ? `<a href="https://www.instagram.com/" style="display: inline-block; height: 20px; width: 20px; padding: 0px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;"><img src="${baseUrl}instagram-icon.png" alt="instagram" height="20" width="20" style="height: 20px; width: 20px; font-size: 0px;"/></a>` : ''}
-              </td>
-            </tr>
-          </table>
+        <td style="vertical-align: middle; text-align: left; height: 40px; padding-right: 10px; background: ${bgColor};">
+          <a href="https://www.emico.nl/vacatures" target="_blank" rel="noopener noreferrer">
+            <img src="${baseUrl}gptw-outline.png" alt="GPTW Logo" width="40" height="40" style="display: block;"/>
+          </a>
+        </td>
+        <td style="vertical-align: middle; padding-left: 20px; border-left: 1px solid ${mainColor}; background: ${bgColor};">
+          <p style="margin: 0; font-size: 10px; color: #505050;">
+            <img src="${baseUrl}address-icon.png" alt="Address" width="12" height="12" style="vertical-align: middle; margin-right: 5px; display: inline-block;"/>
+            ${address}
+          </p>
+        </td>
+        <td style="vertical-align: middle; text-align: right; padding-right: 10px; background: ${bgColor};">
+          ${icons.linkedin ? `<a href="https://nl.linkedin.com/company/emico-e-commerce" style="display: inline-block; width: 20px; height: 20px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;">
+            <img src="${baseUrl}linkedin-icon.png" width="20" height="20" alt="LinkedIn" style="display: block;"/>
+          </a>` : ''}
+          ${icons.whatsapp ? `<a href="https://wa.me/31858887744" style="display: inline-block; width: 20px; height: 20px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;">
+            <img src="${baseUrl}whatsapp-icon.png" width="20" height="20" alt="WhatsApp" style="display: block;"/>
+          </a>` : ''}
+          ${icons.x ? `<a href="https://www.x.com/" style="display: inline-block; width: 20px; height: 20px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;">
+            <img src="${baseUrl}x-icon.png" width="20" height="20" alt="X" style="display: block;"/>
+          </a>` : ''}
+          ${icons.facebook ? `<a href="https://www.facebook.com/" style="display: inline-block; width: 20px; height: 20px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;">
+            <img src="${baseUrl}facebook-icon.png" width="20" height="20" alt="Facebook" style="display: block;"/>
+          </a>` : ''}
+          ${icons.instagram ? `<a href="https://www.instagram.com/" style="display: inline-block; width: 20px; height: 20px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;">
+            <img src="${baseUrl}instagram-icon.png" width="20" height="20" alt="Instagram" style="display: block;"/>
+          </a>` : ''}
         </td>
       </tr>
     </table>
@@ -264,7 +276,7 @@ Content-Transfer-Encoding: 8bit`
         <div className="generated relative">
           <textarea
             id="signature-html"
-            value={signatureHtml}
+            value={signatureHeader + "\n\n" + signatureHtml}
             readOnly
             className="font-mono text-xs leading-relaxed w-full h-80 p-4 bg-[#171717] rounded-2xl resize-none border border-transparent"
           />
@@ -277,11 +289,11 @@ Content-Transfer-Encoding: 8bit`
               >
                 {copied ? (
                   <svg xmlns="http://www.w3.org/2000/svg" height="16px" width="16px" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"/>
                   </svg>
                 ) : (
                   <svg xmlns="http://www.w3.org/2000/svg" height="16px" width="16px" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75"/>
                   </svg>
                 )}
                 <span>{copied ? "Copied!" : "Copy HTML"}</span>
