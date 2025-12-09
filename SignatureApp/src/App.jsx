@@ -19,7 +19,7 @@ function App() {
   const secondColWidth = '300';
   const thirdColWidth = '190';
 
-  const mainColor = "#212121"; // Default Color
+  const mainColor = "#0a568c"; // Default Color
   const bgColor = "#fafafa"; // Background Color
 
   const copyToClipboard = (signatureHtml) => {
@@ -55,15 +55,17 @@ Content-Transfer-Encoding: 8bit`
       <!-- Row 1: Logo, Name/Title, Contact -->
       <tr>
         <td style="vertical-align: middle; text-align: left; padding-right: 10px; height: 90px;">
-          <img src="${baseUrl}logo-dark.png" alt="Emico Logo" width="80" height="15" style="display: block;"/>
+          <a href="https://www.emico.nl">
+            <img src="${baseUrl}emico-logo.png" alt="Emico Logo" width="80" height="15" style="display: block;"/>
+          </a>
         </td>
         <td style="vertical-align: top; padding-left: 20px; border-left: 1px solid ${mainColor};">
-          <p style="margin: 0px 0px 5px 0px; font-size: 18px; font-weight: bold; line-height: 1.2; color: #333;">${name}</p>
+          <p style="margin: 0px 0px 5px 0px; font-size: 18px; font-weight: bold; line-height: 1.2; color: ${mainColor};">${name}</p>
           <p style="margin: 0px; font-size: 10px; color: #505050; letter-spacing: 0.5px; text-transform: uppercase;">
             ${title}
             <img src="${baseUrl}slash.png" alt="Slash Icon" width="9" height="10" style="vertical-align: middle; margin-left: 2px;"/>
           </p>
-          ${workdays ? `<p style="margin: 20px 0 0 0; font-size: 10px; color: #828282;">Werkzaam op: ${workdays}</p>` : ''}
+          ${workdays ? `<p style="margin: 20px 0 0 0; font-size: 10px; color: #828282;">Workdays: ${workdays}</p>` : ''}
         </td>
         <td style="vertical-align: top; text-align: right; padding-left: 15px;">
           <p style="margin: 0 0 8px 0; font-size: 10px; line-height: 1;">
