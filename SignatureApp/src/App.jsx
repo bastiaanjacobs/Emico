@@ -138,11 +138,11 @@ Content-Transfer-Encoding: 8bit`
           </p>
         </td>
         <td class="column socials" style="vertical-align: bottom; text-align: right; background: ${bgColor};">
-          ${icons.linkedin ? `<a href="https://nl.linkedin.com/company/emico-e-commerce" style="display: inline-block; width: 20px; height: 20px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;">
-            <img src="${baseUrl}linkedin-icon.png" width="20" height="20" alt="LinkedIn" style="display: block;"/>
+          ${icons.linkedin ? `<a href="https://nl.linkedin.com/company/emico-e-commerce" style="display: inline-block; width: 20px; height: 20px; margin-left: 5px;">
+            <img src="${baseUrl}linkedin-icon.png" width="20" height="20" alt="LinkedIn"/>
           </a>` : ''}
-          ${icons.whatsapp ? `<a href="https://wa.me/31858887744" style="display: inline-block; width: 20px; height: 20px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;">
-            <img src="${baseUrl}whatsapp-icon.png" width="20" height="20" alt="WhatsApp" style="display: block;"/>
+          ${icons.whatsapp ? `<a href="https://wa.me/31858887744" style="display: inline-block; width: 20px; height: 20px; margin-left: 5px;">
+            <img src="${baseUrl}whatsapp-icon.png" width="20" height="20" alt="WhatsApp"/>
           </a>` : ''}
         </td>
       </tr>
