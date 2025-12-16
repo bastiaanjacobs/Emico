@@ -133,16 +133,16 @@ Content-Transfer-Encoding: 8bit`
         </td>
         <td class="column location" style="vertical-align: bottom; padding-left: 20px; border-left: 1px solid #eeeeee; background: ${bgColor};">
           <p style="margin: 0; font-size: 10px; color: #828282;">
-            <img src="${baseUrl}address.png" alt="Address" width="12" height="12" style="vertical-align: middle; margin-right: 5px; display: inline-block;"/>
+            <img src="${baseUrl}icon-address.png" alt="Address" width="12" height="12" style="vertical-align: middle; margin-right: 5px; display: inline-block;"/>
             <span style="text-decoration: none;">${address}</span>
           </p>
         </td>
         <td class="column socials" style="vertical-align: bottom; text-align: right; background: ${bgColor};">
           ${icons.linkedin ? `<a href="https://nl.linkedin.com/company/emico-e-commerce" style="display: inline-block; width: 20px; height: 20px; margin-left: 5px;">
-            <img src="${baseUrl}linkedin.png" width="20" height="20" alt="LinkedIn" style="display: inline-block;"/>
+            <img src="${baseUrl}icon-linkedin.png" width="20" height="20" alt="LinkedIn" style="display: inline-block;"/>
           </a>` : ''}
           ${icons.whatsapp ? `<a href="https://wa.me/31858887744" style="display: inline-block; width: 20px; height: 20px; margin-left: 5px;">
-            <img src="${baseUrl}whatsapp.png" width="20" height="20" alt="WhatsApp" style="display: inline-block;"/>
+            <img src="${baseUrl}icon-whatsapp.png" width="20" height="20" alt="WhatsApp" style="display: inline-block;"/>
           </a>` : ''}
         </td>
       </tr>
