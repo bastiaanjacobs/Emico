@@ -103,16 +103,16 @@ Content-Transfer-Encoding: 8bit`,Mt=`<html>
         </td>
         <td class="column location" style="vertical-align: bottom; padding-left: 20px; border-left: 1px solid #eeeeee; background: ${st};">
           <p style="margin: 0; font-size: 10px; color: #828282;">
-            <img src="${ol}address.png" alt="Address" width="12" height="12" style="vertical-align: middle; margin-right: 5px; display: inline-block;"/>
+            <img src="${ol}icon-address.png" alt="Address" width="12" height="12" style="vertical-align: middle; margin-right: 5px; display: inline-block;"/>
             <span style="text-decoration: none;">${$}</span>
           </p>
         </td>
         <td class="column socials" style="vertical-align: bottom; text-align: right; background: ${st};">
           ${Ml.linkedin?`<a href="https://nl.linkedin.com/company/emico-e-commerce" style="display: inline-block; width: 20px; height: 20px; margin-left: 5px;">
-            <img src="${ol}linkedin.png" width="20" height="20" alt="LinkedIn" style="display: inline-block;"/>
+            <img src="${ol}icon-linkedin.png" width="20" height="20" alt="LinkedIn" style="display: inline-block;"/>
           </a>`:""}
           ${Ml.whatsapp?`<a href="https://wa.me/31858887744" style="display: inline-block; width: 20px; height: 20px; margin-left: 5px;">
-            <img src="${ol}whatsapp.png" width="20" height="20" alt="WhatsApp" style="display: inline-block;"/>
+            <img src="${ol}icon-whatsapp.png" width="20" height="20" alt="WhatsApp" style="display: inline-block;"/>
           </a>`:""}
         </td>
       </tr>
