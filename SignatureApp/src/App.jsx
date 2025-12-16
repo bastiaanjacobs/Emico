@@ -11,21 +11,20 @@ function App() {
   const [mobile, setMobile] = useState("");
 
   const baseUrl = 'https://bastiaanjacobs.github.io/Emico/';
-  const [copied, setCopied] = useState(false);
   const logoSrc = baseUrl+'logo.svg';
 
   const mailWidth = '580';
-  const firstColWidth = '90';
-  const secondColWidth = '300';
-  const thirdColWidth = '190';
 
   const mainColor = "#0a568c"; // Default Color
-  const bgColor = "#fafafa"; // Background Color
+  const bgColor = "#ffffff"; // Background Color
 
-  const copyToClipboard = (signatureHtml) => {
+  const [copiedHtml, setCopiedHtml] = useState(false);
+
+  // Copy raw HTML
+  const copyHtmlToClipboard = () => {
     navigator.clipboard.writeText(signatureHeader + "\n\n" + signatureHtml);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    setCopiedHtml(true);
+    setTimeout(() => setCopiedHtml(false), 2000);
   };
 
   const [icons, setIcons] = useState({
@@ -42,78 +41,108 @@ Content-Type: text/html; charset=UTF-8
 Content-Transfer-Encoding: 8bit`
 
   const signatureHtml = `<html>
+  <head>
+    <style>
+      @media only screen and (max-width:480px) {
+        table {
+          width: 100% !important;
+        }
+        .column {
+          display: block !important;
+          width: 100% !important;
+          text-align: left !important;
+          border-left: none !important;
+          padding-left: 0 !important;
+        }
+        .column.logo {
+          padding: 0 !important;
+          height: 40px !important;
+        }
+        .column.gptw {
+          padding: 0 !important;
+        }
+        .column.location {
+          padding: 15px 0 10px 0 !important;
+        }
+        .column.socials {
+          padding: 0 !important;
+        }
+        .column.socials a {
+          margin: 0 5px 0 0 !important;
+        }
+        .workdays {
+          margin: 20px 0 10px 0 !important;
+        }
+      }
+    </style>
+  </head>
   <body>
-    <table width="${mailWidth}" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px; color: #111; background: #fff;">
-      <colgroup>
-        <col width="${firstColWidth}">
-        <col width="${secondColWidth}">
-        <col width="${thirdColWidth}">
-      </colgroup>
+    <table width="${mailWidth}" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px; color: #111111; background: #ffffff;">
       <!-- Row 1: Logo, Name/Title, Contact -->
       <tr>
-        <td style="vertical-align: middle; text-align: left; padding-right: 10px; height: 90px;">
+        <td class="column logo" style="vertical-align: middle; text-align: left; padding-right: 10px; height: 90px;">
           <a href="https://www.emico.nl">
             <img src="${baseUrl}emico-logo.png" alt="Emico Logo" width="80" height="15" style="display: block;"/>
           </a>
         </td>
-        <td style="vertical-align: top; padding-left: 20px; border-left: 1px solid #eeeeee;">
+        <td class="column" style="vertical-align: top; padding-left: 20px; border-left: 1px solid #eeeeee;">
           <p style="margin: 0px 0px 5px 0px; font-size: 18px; font-weight: bold; line-height: 1.2; color: ${mainColor};">${name}</p>
           <p style="margin: 0px; font-size: 10px; color: #505050; letter-spacing: 0.5px; text-transform: uppercase;">
             ${title}
             <img src="${baseUrl}slash.png" alt="Slash Icon" width="9" height="10" style="vertical-align: middle; margin-left: 2px;"/>
           </p>
-          ${workdays ? `<p style="margin: 20px 0 0 0; font-size: 10px; color: #828282;">Workdays: ${workdays}</p>` : ''}
+          ${workdays ? `<p class="workdays" style="margin: 20px 0 0 0; font-size: 10px; color: #828282;">Workdays: ${workdays}</p>` : ''}
         </td>
-        <td style="vertical-align: top; text-align: right; padding-left: 15px;">
+        <td class="column" style="vertical-align: top; text-align: right; padding-left: 15px;">
           <p style="margin: 0 0 8px 0; font-size: 10px; line-height: 1;">
             <span style="font-size: 8px; font-weight: 500; color: #505050; letter-spacing: 0.5px;">WEBSITE</span>
-            <a href="https://www.emico.nl" style="color: #333; font-weight: 600; text-decoration: none; font-size: 10px;">
+            <a href="https://www.emico.nl" style="color: #333333; font-weight: 600; text-decoration: none; font-size: 10px;">
               <img src="${baseUrl}slash-dark.png" alt="Slash" width="8" height="8" style="vertical-align: middle; margin: 0 4px; display: inline-block;"/>
-              www.emico.nl
+              <span style="color: #333333; text-decoration: none;">www.emico.nl</span>
             </a>
           </p>
           <p style="margin: 0 0 8px 0; font-size: 10px; line-height: 1;">
             <span style="font-size: 8px; font-weight: 500; color: #505050; letter-spacing: 0.5px;">PHONE</span>
-            <span style="color: #333; font-weight: 600; font-size: 10px;">
+            <span style="color: #333333; font-weight: 600; font-size: 10px;">
               <img src="${baseUrl}slash-dark.png" alt="Slash" width="8" height="8" style="vertical-align: middle; margin: 0 4px; display: inline-block;"/>
-              ${phone}
+              <span style="color: #333333; text-decoration: none;">${phone}</span>
             </span>
           </p>
           <p style="margin: 0 0 8px 0; font-size: 10px; line-height: 1;">
             <span style="font-size: 8px; font-weight: 500; color: #505050; letter-spacing: 0.5px;">EMAIL</span>
-            <a href="mailto:${email}" style="color: #333; font-weight: 600; font-size: 10px; text-decoration: none;">
+            <a href="mailto:${email}" style="color: #333333; font-weight: 600; font-size: 10px; text-decoration: none;">
               <img src="${baseUrl}slash-dark.png" alt="Slash" width="8" height="8" style="vertical-align: middle; margin: 0 4px; display: inline-block;"/>
-              ${email}
+              <span style="color: #333333; text-decoration: none;">${email}</span>
             </a>
           </p>
           ${mobile ? `<p style="margin: 0 0 8px 0; font-size: 10px; line-height: 1;">
             <span style="font-size: 8px; font-weight: 500; color: #505050; letter-spacing: 0.5px;">MOBILE</span>
-            <span style="color: #333; font-weight: 600; font-size: 10px;">
+            <span style="color: #333333; font-weight: 600; font-size: 10px;">
               <img src="${baseUrl}slash-dark.png" alt="Slash" width="8" height="8" style="vertical-align: middle; margin: 0 4px; display: inline-block;"/>
-              ${mobile}
+              <span style="color: #333333; text-decoration: none;">${mobile}</span>
             </span>
           </p>` : ''}
         </td>
       </tr>
       <!-- Row 2: GPTW, Address, Social Icons -->
       <tr>
-        <td style="vertical-align: middle; text-align: left; height: 40px; padding-right: 10px; background: ${bgColor};">
+        <td  class="column gptw" style="vertical-align: middle; text-align: left; height: 40px; padding-right: 10px; background: ${bgColor};">
           <a href="https://www.emico.nl/vacatures" target="_blank" rel="noopener noreferrer">
-            <img src="${baseUrl}gptw-outline.png" alt="GPTW Logo" width="40" height="40">
+            <img src="${baseUrl}gptw-outline.png" alt="GPTW Logo" width="40" height="40" style="display: block;"/>
           </a>
         </td>
-        <td style="vertical-align: middle; padding-left: 20px; border-left: 1px solid #eeeeee; background: ${bgColor};">
+        <td class="column location" style="vertical-align: bottom; padding-left: 20px; border-left: 1px solid #eeeeee; background: ${bgColor};">
           <p style="margin: 0; font-size: 10px; color: #828282;">
             <img src="${baseUrl}address-icon.png" alt="Address" width="12" height="12" style="vertical-align: middle; margin-right: 5px; display: inline-block;"/>
-            ${address}
+            <span style="text-decoration: none;">${address}</span>
           </p>
         </td>
-        <td style="vertical-align: middle; text-align: right; padding-right: 10px; background: ${bgColor};">
+        <td class="column socials" style="vertical-align: bottom; text-align: right; background: ${bgColor};">
           ${icons.linkedin ? `<a href="https://nl.linkedin.com/company/emico-e-commerce" style="display: inline-block; width: 20px; height: 20px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;">
-            <img src="${baseUrl}linkedin-icon.png" width="20" height="20" alt="LinkedIn"/>
+            <img src="${baseUrl}linkedin-icon.png" width="20" height="20" alt="LinkedIn" style="display: block;"/>
           </a>` : ''}
           ${icons.whatsapp ? `<a href="https://wa.me/31858887744" style="display: inline-block; width: 20px; height: 20px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;">
-            <img src="${baseUrl}whatsapp-icon.png" width="20" height="20" alt="WhatsApp"/>
+            <img src="${baseUrl}whatsapp-icon.png" width="20" height="20" alt="WhatsApp" style="display: block;"/>
           </a>` : ''}
         </td>
       </tr>
@@ -258,7 +287,7 @@ Content-Transfer-Encoding: 8bit`
         </div>
 
         <h2 className="text-xl font-bold mb-4 mt-8">Preview</h2>
-        <div className="preview bg-white rounded-md p-8 overflow-auto">
+        <div className="preview bg-white rounded-md p-8 overflow-auto relative">
           <div dangerouslySetInnerHTML={{ __html: signatureHtml }} id="preview"/>
         </div>
 
@@ -273,11 +302,11 @@ Content-Transfer-Encoding: 8bit`
           <div className="absolute bottom-4 right-4 flex h-9 items-center">
             <div className="flex items-center gap-4 rounded-sm">
               <button
-                className="text-xs flex gap-1 items-center select-none py-1"
-                aria-label="Copy"
-                onClick={() => copyToClipboard(signatureHtml)}
+                className="copy-html text-xs flex gap-1 items-center select-none py-1 text-[#f1f1f1] bg-[#171717]"
+                aria-label="Copy HTML"
+                onClick={copyHtmlToClipboard}
               >
-                {copied ? (
+                {copiedHtml ? (
                   <svg xmlns="http://www.w3.org/2000/svg" height="16px" width="16px" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"/>
                   </svg>
@@ -286,10 +315,13 @@ Content-Transfer-Encoding: 8bit`
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75"/>
                   </svg>
                 )}
-                <span>{copied ? "Copied!" : "Copy HTML"}</span>
+                <span>{copiedHtml ? "Copied!" : "Copy HTML"}</span>
               </button>
             </div>
           </div>
+        </div>
+        <div className="text-center text-xs my-4 text-gray-700">
+          open ~/Library/Mail/V10/MailData/Signatures/
         </div>
       </div>
     </section>
