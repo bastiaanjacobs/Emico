@@ -8,7 +8,7 @@ function App() {
   const [email, setEmail] = useState("info@emico.nl");
   const [phone, setPhone] = useState("+31 85 888 77 44");
   const [address, setAddress] = useState("Utrechtsestraatweg 157, 3911 TS Rhenen");
-  const [mobile, setMobile] = useState("+31 6 1234 5678");
+  const [mobile, setMobile] = useState("");
 
   const baseUrl = 'https://bastiaanjacobs.github.io/Emico/';
   const [copied, setCopied] = useState(false);
@@ -30,10 +30,7 @@ function App() {
 
   const [icons, setIcons] = useState({
     linkedin: true,
-    whatsapp: true,
-    x: false,
-    facebook: false,
-    instagram: false,
+    whatsapp: true
   });
 
   const toggleIcon = (name) => {
@@ -59,7 +56,7 @@ Content-Transfer-Encoding: 8bit`
             <img src="${baseUrl}emico-logo.png" alt="Emico Logo" width="80" height="15" style="display: block;"/>
           </a>
         </td>
-        <td style="vertical-align: top; padding-left: 20px; border-left: 1px solid ${mainColor};">
+        <td style="vertical-align: top; padding-left: 20px; border-left: 1px solid #eeeeee;">
           <p style="margin: 0px 0px 5px 0px; font-size: 18px; font-weight: bold; line-height: 1.2; color: ${mainColor};">${name}</p>
           <p style="margin: 0px; font-size: 10px; color: #505050; letter-spacing: 0.5px; text-transform: uppercase;">
             ${title}
@@ -102,30 +99,21 @@ Content-Transfer-Encoding: 8bit`
       <tr>
         <td style="vertical-align: middle; text-align: left; height: 40px; padding-right: 10px; background: ${bgColor};">
           <a href="https://www.emico.nl/vacatures" target="_blank" rel="noopener noreferrer">
-            <img src="${baseUrl}gptw-outline.png" alt="GPTW Logo" width="40" height="40" style="display: block;"/>
+            <img src="${baseUrl}gptw-outline.png" alt="GPTW Logo" width="40" height="40">
           </a>
         </td>
-        <td style="vertical-align: middle; padding-left: 20px; border-left: 1px solid ${mainColor}; background: ${bgColor};">
-          <p style="margin: 0; font-size: 10px; color: #505050;">
+        <td style="vertical-align: middle; padding-left: 20px; border-left: 1px solid #eeeeee; background: ${bgColor};">
+          <p style="margin: 0; font-size: 10px; color: #828282;">
             <img src="${baseUrl}address-icon.png" alt="Address" width="12" height="12" style="vertical-align: middle; margin-right: 5px; display: inline-block;"/>
             ${address}
           </p>
         </td>
         <td style="vertical-align: middle; text-align: right; padding-right: 10px; background: ${bgColor};">
           ${icons.linkedin ? `<a href="https://nl.linkedin.com/company/emico-e-commerce" style="display: inline-block; width: 20px; height: 20px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;">
-            <img src="${baseUrl}linkedin-icon.png" width="20" height="20" alt="LinkedIn" style="display: block;"/>
+            <img src="${baseUrl}linkedin-icon.png" width="20" height="20" alt="LinkedIn"/>
           </a>` : ''}
           ${icons.whatsapp ? `<a href="https://wa.me/31858887744" style="display: inline-block; width: 20px; height: 20px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;">
-            <img src="${baseUrl}whatsapp-icon.png" width="20" height="20" alt="WhatsApp" style="display: block;"/>
-          </a>` : ''}
-          ${icons.x ? `<a href="https://www.x.com/" style="display: inline-block; width: 20px; height: 20px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;">
-            <img src="${baseUrl}x-icon.png" width="20" height="20" alt="X" style="display: block;"/>
-          </a>` : ''}
-          ${icons.facebook ? `<a href="https://www.facebook.com/" style="display: inline-block; width: 20px; height: 20px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;">
-            <img src="${baseUrl}facebook-icon.png" width="20" height="20" alt="Facebook" style="display: block;"/>
-          </a>` : ''}
-          ${icons.instagram ? `<a href="https://www.instagram.com/" style="display: inline-block; width: 20px; height: 20px; margin-left: 5px; background-color: ${mainColor}; border-radius: 5px;">
-            <img src="${baseUrl}instagram-icon.png" width="20" height="20" alt="Instagram" style="display: block;"/>
+            <img src="${baseUrl}whatsapp-icon.png" width="20" height="20" alt="WhatsApp"/>
           </a>` : ''}
         </td>
       </tr>
