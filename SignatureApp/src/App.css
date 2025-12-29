@@ -66,10 +66,4 @@ h1 {
   img, svg {
     @apply inline;
   }
-
-  table, tr, td {
-    &:hover {
-      outline: 1px dashed #008A50;
-    }
-  }
 }
